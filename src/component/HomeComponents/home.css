@@ -1,0 +1,184 @@
+.grow-on-hover {
+  transition: transform 0.2s ease-in-out;
+  padding: 10px;
+}
+
+.grow-on-hover:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 0, 0, 0.3);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.col h5 {
+  padding-top: 10px;
+}
+
+.gradient-button {
+  background: linear-gradient(to right, #FF8C00, #FF4500);
+  /* Adjust gradient colors as needed */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.gradient-button:hover {
+  background: linear-gradient(to right, #FF4500, #FF8C00);
+  /* Reverse gradient colors on hover */
+  color: white;
+}
+
+/* TextOverImage.css */
+
+/* Container styles */
+.text-over-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: red;
+  position: relative;
+  max-height: 500px;
+}
+
+/* Image styles */
+.text-over-image-image {
+  width: 100%;
+  max-height: 500px;
+  height: auto;
+  filter: brightness(40%);
+}
+
+/* Content styles */
+.text-over-image-content {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: 20px;
+}
+
+/* Title styles */
+.text-over-image-content h1 {
+  font-size: 44px;
+  font-weight: 700;
+}
+
+/* Button styles */
+.text-over-image-button {
+  padding: 10px 40px;
+  background-color: red;
+  color: white;
+  border: 2px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.text-over-image-button:hover {
+  background-color: white;
+  border: 2px solid red;
+  color: red;
+}
+
+/* Media Query for smaller screens */
+@media (max-width: 768px) {
+  .text-over-image-container {
+    height: 100vh;
+  }
+  .text-over-image-image {
+    filter: brightness(40%);
+    height: 100vh;
+  }
+
+  .text-over-image-content {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  .text-over-image-content h1 {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  .grow-on-hover:hover {
+    transform: scale(1.05);
+    padding: 20px 10px 10px 10px;
+    border-radius: 10px;
+  }
+}
+
+.glowing-text {
+  animation: glow 2s infinite alternate;
+  color: #fff;
+  /* Text color when not glowing */
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0909, 0 0 30px #fa3434;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #04fc25, 0 0 30px #ff0000;
+  }
+
+  100% {
+    text-shadow: 0 0 30px #ff00ff, 0 0 50px #ff0000, 0 0 70px #0073ff;
+  }
+}
+
+/* Custom CSS for changing text color on hover */
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: red;
+  font-weight: 700;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+  font-weight: 400;
+}
+
+/* //////////////////////////////////////////////////////////////// */
+.gradient-text {
+  font-size: 36px;
+  background: linear-gradient(to bottom right, #02ffff, #ff0000);
+  -webkit-background-clip: text;
+  /* For older webkit browsers */
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text:hover {
+  font-size: 36px;
+  background: linear-gradient(to right bottom, #ff0000, #f5ab35);
+  -webkit-background-clip: text;
+  /* For older webkit browsers */
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-background {
+  background: linear-gradient(to left, #00000078, #ffffff);
+  width: 100%;
+}
+
+/* BackgroundVideo.css */
+/*.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* Place it behind the content 
+}
+*/
+/*#background-video {
+  object-fit: cover; /* Scale the video to cover the entire container 
+  width: 100%;
+}
+*/

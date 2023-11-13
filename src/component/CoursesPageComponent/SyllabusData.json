@@ -1,0 +1,799 @@
+[
+    {
+        "id": 1,
+        "part": "Course 1 : Interview Preparation Course",
+        "feature": [
+            "Welcome to Mehta Placements and Unlock Your Dream Job In Just 15 Days",
+            "Welcome to Mehta Placements, your gateway to unlocking your dream job in just 15 days. We are dedicated to providing you with the tools, knowledge, and strategies you need to accelerate your career journey. Join us on this transformative path, and let's turn your dream job into a reality together."
+        ],
+        "data": [
+            {
+                "id": 1,
+                "title": "Key Features of 'Unlock Your Dream Job In Just 15 Days' Best Description",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Comprehensive Curriculum",
+                        "data": "Our program offers a well-rounded curriculum covering resume building, interview skills, communication, and more, ensuring you are fully equipped for your job search."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Practical Training",
+                        "data": "You'll receive hands-on experience through mock interviews, which help build your confidence and fine-tune your interview techniques."
+                    },
+                    {
+                        "id": 3,
+                        "title": "Personalized Guidance",
+                        "data": "Our expert mentors provide personalized guidance, addressing your specific needs and concerns to maximize your job search success."
+                    },
+                    {
+                        "id": 4,
+                        "title": "Job Portal Insights",
+                        "data": "Learn how to effectively use job portals like Naukri and LinkedIn, and gain insights into acing written tests and assessments."
+                    },
+                    {
+                        "id": 5,
+                        "title": "Specialized Modules",
+                        "data": "We offer specialized modules for phone and video interviews, group discussions, salary negotiations, and stress management, making sure you're ready for every aspect of the hiring process."
+                    },
+                    {
+                        "id": 6,
+                        "title": "Shortcuts to Success",
+                        "data": "Benefit from time-saving techniques and shortcuts, enabling you to secure your dream job in just 15 days."
+                    },
+                    {
+                        "id": 7,
+                        "title": "Hesitation Elimination",
+                        "data": "Overcome any hesitations or fears you may have during interviews, empowering you to present yourself with confidence."
+                    },
+                    {
+                        "id": 8,
+                        "title": "Communication Mastery",
+                        "data": "Improve your communication skills, including fluency in English, for more effective and impactful interactions during interviews."
+                    },
+                    {
+                        "id": 9,
+                        "title": "Grooming and Presentation",
+                        "data": "Enhance your personal grooming and presentation skills, ensuring you make a strong impression on potential employers."
+                    },
+                    {
+                        "id": 10,
+                        "title": "Job Placement Assistance",
+                        "data": "As a bonus, we offer job placement assistance to connect you with suitable job opportunities."
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Why choose Unlock Your Dream Job In Just 15 Days?",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Accelerated Job Search",
+                        "data": "This program is designed to expedite your job search process. In just 15 days, you'll acquire the essential skills, strategies, and resources to actively pursue your dream job."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Structured Learning",
+                        "data": "'Unlock Your Dream Job' provides a structured day-by-day plan that guides you through each step of the job-seeking journey. This structured approach ensures that you cover all necessary aspects."
+                    },
+                    {
+                        "id": 3,
+                        "title": "Customized Approach",
+                        "data": "The program takes into account your unique skills, experiences, and career goals. It provides tailored advice to help you secure a job that aligns with your aspirations."
+                    },
+                    {
+                        "id": 4,
+                        "title": "Comprehensive Curriculum",
+                        "data": "It covers a wide range of topics, from resume building and interview skills to networking and negotiation techniques. You'll be well-prepared for every stage of the job search."
+                    },
+                    {
+                        "id": 5,
+                        "title": "Industry Insights",
+                        "data": "Benefit from expert guidance and industry insights that can help you understand the job market, industry trends, and employer expectations. This knowledge can give you a competitive edge."
+                    },
+                    {
+                        "id": 6,
+                        "title": "Confidence Building",
+                        "data": "The program includes mock interviews and practice sessions to boost your confidence. You'll learn how to answer common interview questions effectively and handle challenging situations with poise."
+                    },
+                    {
+                        "id": 7,
+                        "title": "Networking Strategies",
+                        "data": "Learn how to build a professional network and leverage it in your job search. Effective networking can open doors to hidden job opportunities."
+                    },
+                    {
+                        "id": 8,
+                        "title": "Interview Success",
+                        "data": "Gain the skills to excel in interviews, whether they're in-person, virtual, or over the phone. You'll receive tips for showcasing your qualifications and demonstrating your suitability for the role."
+                    },
+                    {
+                        "id": 9,
+                        "title": "Negotiation Skills",
+                        "data": "Understand the art of salary negotiation and benefit negotiation. You'll learn how to secure the best compensation package while maintaining a positive rapport with potential employers."
+                    },
+                    {
+                        "id": 10,
+                        "title": "Hassle-Free Learning",
+                        "data": "This program offers a hassle-free and time-efficient learning experience, making it ideal for individuals who need to secure a job quickly."
+                    },
+                    {
+                        "id": 11,
+                        "title": "Proven Results",
+                        "data": "Many participants have successfully unlocked their dream jobs within the 15-day timeframe. The program's effectiveness is backed by real success stories."
+                    },
+                    {
+                        "id": 12,
+                        "title": "Professional Guidance",
+                        "data": "You'll receive guidance from experienced career coaches who can provide expert advice and support throughout your job search."
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Day Wise Schedule",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Day 1",
+                        "data": "Introduction to Interview Preparation (1.5 hours)"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Day 2",
+                        "data": "Resume Building (1.5 hours)"
+                    },
+                    {
+                        "id": 3,
+                        "title": "Day 3",
+                        "data": "Interview Types and Stages (1.5 hours)"
+                    },
+                    {
+                        "id": 4,
+                        "title": "Day 4",
+                        "data": "Behavioral Interview Skills (1.5 hours)"
+                    },
+                    {
+                        "id": 5,
+                        "title": "Day 5",
+                        "data": " Communication Skills (1.5 hours) , Formal Way Of Presenting Yourself, Personality Development , Grooming"
+                    },
+                    {
+                        "id": 6,
+                        "title": "Day 6",
+                        "data": "Mock Interview Practice And feedback Including Preparations"
+                    },
+                    {
+                        "id": 7,
+                        "title": "Day 7",
+                        "data": "Mock Interview Practice And feedback Including Preparations"
+                    },
+                    {
+                        "id": 8,
+                        "title": "Day 8",
+                        "data": "Technical Interview Preparation (1.5 hours) , Company Related Questions"
+                    },
+                    {
+                        "id": 9,
+                        "title": "Day 9",
+                        "data": " How To Find Jobs On Job Portals Like Naukri, linked in Etc How to crack written test Exam, Crack Assessment Test, Versant Test"
+                    },
+                    {
+                        "id": 10,
+                        "title": "Day 10",
+                        "data": " Telephonic Interview Cracking Tips And Tricks , Virtual And Walk In Interview Cracking Tips And Tricks And Etiquettes"
+                    },
+                    {
+                        "id": 11,
+                        "title": "Day 11",
+                        "data": "GD, Salary Negotiations Skill, Do And Don’t In Interview"
+                    },
+                    {
+                        "id": 12,
+                        "title": "Day 12",
+                        "data": " Short Tricks And Stress management During Interview, How to crack interview in one go, Hesitation Issue Handling"
+                    },
+                    {
+                        "id": 13,
+                        "title": "Day 13",
+                        "data": "Mehta Placements Interview Mock Written Test And Communication Test"
+                    },
+                    {
+                        "id": 14,
+                        "title": "Day 14",
+                        "data": "Mock Interview Practice And feedback Including Preparations"
+                    },
+                    {
+                        "id": 15,
+                        "title": "Day 15",
+                        "data": "Mock Interview Practice And feedback Including Preparations"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "part": "Course 2 : Spoken English Course",
+        "feature": [
+            "Master English Speaking in Just 30 Days: Your Path to Fluent Communication",
+            "Welcome to Mehta Placements, where we offer you the opportunity to embark on a transformative journey towards mastering the art of English speaking in just 30 days. Our program, 'Your Path to Fluent Communication,' is designed to equip you with the skills and confidence needed to communicate effectively in English. Whether you're looking to enhance your professional prospects, excel in social interactions, or simply boost your self-assurance, our course is your key to unlocking the world of fluent communication. Join us and take the first step towards a brighter, more confident future in English communication."
+        ],
+        "data": [
+            {
+                "id": 1,
+                "title": "Key Features of 'Master English Speaking in Just 30 Days: Your Path to Fluent Communication'",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Structured Curriculum",
+                        "data": "Our program follows a carefully structured curriculum that covers all aspects of English language learning, including grammar, vocabulary, pronunciation, and conversation skills."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Efficient Learning",
+                        "data": "With a 30-day timeline, you'll experience a fast-paced and intensive learning journey that maximizes your English proficiency in a short time."
+                    },
+                    {
+                        "id": 3,
+                        "title": "Daily Practice",
+                        "data": "We emphasize daily practice to reinforce your language skills and encourage consistent improvement in speaking, listening, reading, and writing."
+                    },
+                    {
+                        "id": 4,
+                        "title": "Real-life Scenarios",
+                        "data": "Our lessons are designed around real-life situations and conversations, ensuring that you're well-prepared to communicate effectively in professional and personal settings."
+                    },
+                    {
+                        "id": 5,
+                        "title": "Interactive Learning",
+                        "data": "Engage in interactive sessions, group discussions, and role-playing exercises that provide practical experience and build your confidence in using English."
+                    },
+                    {
+                        "id": 6,
+                        "title": "Native Speaker Guidance",
+                        "data": "Benefit from guidance by experienced native English speakers who can help you with accent, pronunciation, and cultural nuances."
+                    },
+                    {
+                        "id": 7,
+                        "title": "Customized Feedback",
+                        "data": "Receive personalized feedback and guidance to address your specific areas of improvement, allowing you to focus on your unique learning needs."
+                    },
+                    {
+                        "id": 8,
+                        "title": "Listening Comprehension",
+                        "data": "Develop strong listening skills to understand a variety of English accents and dialects, which is crucial for effective communication."
+                    },
+                    {
+                        "id": 9,
+                        "title": "Grammar Mastery",
+                        "data": "Master English grammar rules and structure, enabling you to express yourself clearly and correctly."
+                    },
+                    {
+                        "id": 10,
+                        "title": "Fluency in 30 Days",
+                        "data": "Our program's goal is to make you a fluent English speaker within just 30 days, allowing you to confidently navigate English-speaking environments."
+                    },
+                    {
+                        "id": 11,
+                        "title": "Confidence Building",
+                        "data": "Overcome language barriers and gain the confidence to express yourself articulately and persuasively in English."
+                    },
+                    {
+                        "id": 12,
+                        "title": "Practical Application",
+                        "data": "The focus is not just on learning the language but on applying it in real-world situations, ensuring you can use English effectively in your daily life and career."
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Why Choose 'Master English Speaking In Just 30 Days: Your Path to Fluent Communication'?",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Accelerated Learning",
+                        "data": "This program is designed for individuals who want to master English quickly. In just 30 days, you'll significantly improve your English language skills, covering speaking, listening, reading, and writing."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Structured Curriculum",
+                        "data": "The course provides a well-structured, day-by-day plan that guides you through progressive lessons. This ensures that you cover all key aspects of English language learning in a logical order."
+                    },
+                    {
+                        "id": 3,
+                        "title": "Customized Approach",
+                        "data": "'Master English Speaking' recognizes that learners have varying levels of proficiency. The program is adaptable, catering to both beginners and those looking to enhance their existing language skills."
+                    },
+                    {
+                        "id": 4,
+                        "title": "Comprehensive Content",
+                        "data": "The course covers a wide range of language topics, including vocabulary, grammar, pronunciation, and conversational skills. You'll gain a holistic understanding of the English language."
+                    },
+                    {
+                        "id": 5,
+                        "title": "Practical Learning",
+                        "data": "The focus is on practical, everyday English that you can immediately apply in real-life situations, both personally and professionally."
+                    },
+                    {
+                        "id": 6,
+                        "title": "Fluency Development",
+                        "data": "Through daily practice and interactive exercises, you'll build fluency and gain the confidence to engage in fluent conversations in English."
+                    },
+                    {
+                        "id": 7,
+                        "title": "Industry Insights",
+                        "data": "If your goal is career-oriented, you'll learn communication skills relevant to the professional world. This can open doors to better job opportunities."
+                    },
+                    {
+                        "id": 8,
+                        "title": "Convenient Learning",
+                        "data": "The program offers hassle-free learning that fits into your daily routine. You can study at your own pace, with flexibility in accessing the course materials."
+                    },
+                    {
+                        "id": 9,
+                        "title": "Confidence Building",
+                        "data": "Gaining proficiency in English can significantly boost your self-confidence. You'll be more comfortable expressing yourself and interacting with English speakers."
+                    },
+                    {
+                        "id": 10,
+                        "title": "Improved Opportunities",
+                        "data": "Being fluent in English can open doors to various opportunities, such as better job prospects, international travel, and educational advancement."
+                    },
+                    {
+                        "id": 11,
+                        "title": "Cultural Understanding",
+                        "data": "Learning English also provides insights into English-speaking cultures, which can be invaluable when communicating with people from diverse backgrounds."
+                    },
+                    {
+                        "id": 12,
+                        "title": "Proven Success",
+                        "data": "Many learners have achieved fluency and success with this program, and their testimonials demonstrate its effectiveness."
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Pathway to Fluent Communication",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Day 1",
+                        "data": "Introduction to English sounds"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Day 2",
+                        "data": "Vowel sounds and their usage"
+                    },
+                    {
+                        "id": 3,
+                        "title": "Day 3",
+                        "data": "Consonant sounds and practice"
+                    },
+                    {
+                        "id": 4,
+                        "title": "Day 4",
+                        "data": "Essential English words"
+                    },
+                    {
+                        "id": 5,
+                        "title": "Day 5",
+                        "data": "Basic sentence structure"
+                    },
+                    {
+                        "id": 6,
+                        "title": "Day 6",
+                        "data": "Simple tenses (present, past, future)"
+                    },
+                    {
+                        "id": 7,
+                        "title": "Day 7",
+                        "data": "Introduction to common phrases"
+                    },
+                    {
+                        "id": 8,
+                        "title": "Day 8",
+                        "data": "Conversation starters"
+                    },
+                    {
+                        "id": 9,
+                        "title": "Day 9",
+                        "data": "Practising short dialogues"
+                    },
+                    {
+                        "id": 10,
+                        "title": "Day 10",
+                        "data": "Role-play exercises"
+                    },
+                    {
+                        "id": 11,
+                        "title": "Day 11",
+                        "data": "Learning synonyms and antonyms"
+                    },
+                    {
+                        "id": 12,
+                        "title": "Day 12",
+                        "data": "Using idioms and expressions"
+                    },
+                    {
+                        "id": 13,
+                        "title": "Day 13",
+                        "data": "Discussing various topics"
+                    },
+                    {
+                        "id": 14,
+                        "title": "Day 14",
+                        "data": "Listening and repeating sentences"
+                    },
+                    {
+                        "id": 15,
+                        "title": "Day 15",
+                        "data": "Complex sentence structures"
+                    },
+                    {
+                        "id": 16,
+                        "title": "Day 16",
+                        "data": "Conditional sentences"
+                    },
+                    {
+                        "id": 17,
+                        "title": "Day 17",
+                        "data": "Reported speech"
+                    },
+                    {
+                        "id": 18,
+                        "title": "Day 18",
+                        "data": "Active listening skills"
+                    },
+                    {
+                        "id": 19,
+                        "title": "Day 19",
+                        "data": "Speaking on current affairs"
+                    },
+                    {
+                        "id": 20,
+                        "title": "Day 20",
+                        "data": "Group discussions"
+                    },
+                    {
+                        "id": 21,
+                        "title": "Day 21",
+                        "data": "Presentation skills"
+                    },
+                    {
+                        "id": 22,
+                        "title": "Day 22",
+                        "data": "Understanding accents"
+                    },
+                    {
+                        "id": 23,
+                        "title": "Day 23",
+                        "data": "Reducing your accent"
+                    },
+                    {
+                        "id": 24,
+                        "title": "Day 24",
+                        "data": "Neutral pronunciation"
+                    },
+                    {
+                        "id": 25,
+                        "title": "Day 25",
+                        "data": "Conducting mock interviews"
+                    },
+                    {
+                        "id": 26,
+                        "title": "Day 26",
+                        "data": "Handling interview questions"
+                    },
+                    {
+                        "id": 27,
+                        "title": "Day 27",
+                        "data": "Interview etiquette"
+                    },
+                    {
+                        "id": 28,
+                        "title": "Day 28",
+                        "data": "Self-assessment and improvement"
+                    },
+                    {
+                        "id": 29,
+                        "title": "Day 29",
+                        "data": "Peer practice sessions"
+                    },
+                    {
+                        "id": 30,
+                        "title": "Day 30",
+                        "data": "Celebrating your fluent English!"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "part": "Course 3 : Stock Market Course",
+        "feature": [
+            "Exploring Stock Market Mysteries: From Fundamental Principles to Advanced Trading Tactics",
+            "Welcome to Mehta Placements Stock Market Classes, where we unlock the secrets of the stock market and empower you with the knowledge and skills to navigate this dynamic financial landscape. Our comprehensive courses cover everything from the fundamentals of trading to advanced techniques, ensuring that you gain a deep understanding of the stock market. Whether you're a beginner looking to start your investment journey or an experienced trader aiming to refine your strategies, our classes provide valuable insights and practical wisdom. Join us on this exciting learning adventure and embark on a path to financial success and prosperity."
+        ],
+        "data": [
+            {
+                "id": 1,
+                "title": "Key Features of Stock Market Mysteries: Fundamental Principles to Advanced Trading Tactics",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Comprehensive Knowledge",
+                        "data": "This program offers a deep dive into the stock market, beginning with fundamental principles and gradually progressing to advanced trading tactics. It covers all aspects of stock market trading."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Progressive Learning",
+                        "data": "The curriculum is designed for learners of all levels, from beginners to experienced traders. It caters to both those who are new to the stock market and those looking to enhance their existing skills."
+                    },
+                    {
+                        "id": 3,
+                        "title": "Fundamental Understanding",
+                        "data": "Gain a strong foundational understanding of how the stock market operates, including concepts like stocks, bonds, market indices, and economic factors influencing stock prices."
+                    },
+                    {
+                        "id": 4,
+                        "title": "Technical Analysis",
+                        "data": "Learn advanced technical analysis techniques to predict price movements, identify trends, and make informed trading decisions."
+                    },
+                    {
+                        "id": 5,
+                        "title": "Risk Management",
+                        "data": "Understand the importance of risk management and explore strategies for preserving capital and minimizing losses."
+                    },
+                    {
+                        "id": 6,
+                        "title": "Trading Strategies",
+                        "data": "Explore various trading strategies, including day trading, swing trading, and long-term investing, to suit your financial goals and risk tolerance."
+                    },
+                    {
+                        "id": 7,
+                        "title": "Market Psychology",
+                        "data": "Delve into the psychology of trading, including the impact of emotions on decision-making and strategies for maintaining a disciplined trading approach."
+                    },
+                    {
+                        "id": 8,
+                        "title": "Real-World Case Studies",
+                        "data": "Benefit from real-world case studies and examples that illustrate trading principles and provide insights into successful trading practices."
+                    },
+                    {
+                        "id": 9,
+                        "title": "Market Simulation",
+                        "data": "Practice your trading skills through market simulations and virtual trading platforms, allowing you to gain practical experience without risking real capital."
+                    },
+                    {
+                        "id": 10,
+                        "title": "Advanced Trading Tactics",
+                        "data": "Explore advanced trading tactics such as options trading, algorithmic trading, and derivatives, gaining insights into complex strategies."
+                    },
+                    {
+                        "id": 11,
+                        "title": "Expert Instruction",
+                        "data": "Learn from seasoned experts in the field who provide guidance, tips, and insights from their experience in the stock market."
+                    },
+                    {
+                        "id": 12,
+                        "title": "Practical Application",
+                        "data": "The program emphasizes the application of knowledge, enabling you to make informed trading decisions and develop a personalized trading strategy."
+                    }
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Why Choose Our Stock Market Classes ?",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Expert Guidance",
+                        "data": "Our classes are led by seasoned professionals with years of experience in the stock market. You'll learn from the best in the field."
+                    },
+                    {
+                        "id": 2,
+                        "title": "Comprehensive Curriculum",
+                        "data": "We offer a well-structured and comprehensive curriculum that covers everything from the basics to advanced trading techniques, ensuring you have a strong foundation."
+                    },
+                    {
+                        "id": 3,
+                        "title": "Practical Learning",
+                        "data": "We believe in learning by doing. Our classes include practical exercises and simulations, allowing you to apply what you've learned in real-world scenarios."
+                    },
+                    {
+                        "id": 4,
+                        "title": "Individual Attention",
+                        "data": "We keep our class sizes small to provide personalized attention to each student, ensuring your doubts are addressed, and your progress is tracked."
+                    },
+                    {
+                        "id": 5,
+                        "title": "Proven Results",
+                        "data": "Our track record speaks for itself. Many of our students have gone on to become successful traders and investors, and we have a high success rate in helping them achieve their financial goals."
+                    },
+                    {
+                        "id": 6,
+                        "title": "Flexibility",
+                        "data": "We offer flexible schedules to accommodate your busy life. Whether you're a beginner or looking to enhance your trading skills, we have a class for you."
+                    },
+                    {
+                        "id": 7,
+                        "title": "Supportive Community",
+                        "data": "Joining our classes means becoming part of a supportive community of like-minded individuals who share your passion for the stock market."
+                    },
+                    {
+                        "id": 8,
+                        "title": "Affordability",
+                        "data": "Quality education shouldn't break the bank. Our classes are reasonably priced to make learning accessible to all."
+                    },
+                    {
+                        "id": 9,
+                        "title": "Continuous Updates",
+                        "data": "The stock market is dynamic, and we keep our content updated to reflect the latest trends and strategies."
+                    },
+                    {
+                        "id": 10,
+                        "title": "Career Advancement",
+                        "data": "Whether you're a novice or an experienced trader, our classes can help you take your career to the next level and achieve financial success."
+                    }
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Learning Pathway for Stock Market Trading",
+                "data": [
+                    {
+                        "id": 1,
+                        "title": "Day 1",
+                        "data": "Understanding Stock Markets"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Day 2",
+                        "data": "Types of Stocks"
+                    },
+                    {
+                        "id": 3,
+                        "title": "Day 3",
+                        "data": "Market Participants"
+                    },
+                    {
+                        "id": 4,
+                        "title": "Day 4",
+                        "data": "Stock Market Exchanges"
+                    },
+                    {
+                        "id": 5,
+                        "title": "Day 5",
+                        "data": "Trading vs. Investing"
+                    },
+                    {
+                        "id": 6,
+                        "title": "Day 6",
+                        "data": " Introduction to Fundamental Analysis"
+                    },
+                    {
+                        "id": 7,
+                        "title": "Day 7",
+                        "data": "Financial Statements Analysis"
+                    },
+                    {
+                        "id": 8,
+                        "title": "Day 8",
+                        "data": "Ratios and Metrics"
+                    },
+                    {
+                        "id": 9,
+                        "title": "Day 9",
+                        "data": "Valuation Methods"
+                    },
+                    {
+                        "id": 10,
+                        "title": "Day 10",
+                        "data": "Economic Indicators and their Impact"
+                    },
+                    {
+                        "id": 11,
+                        "title": "Day 11",
+                        "data": "Basics of Technical Analysis"
+                    },
+                    {
+                        "id": 12,
+                        "title": "Day 12",
+                        "data": "Chart Patterns"
+                    },
+                    {
+                        "id": 13,
+                        "title": "Day 13",
+                        "data": "Technical Indicators"
+                    },
+                    {
+                        "id": 14,
+                        "title": "Day 14",
+                        "data": "Candlestick Patterns"
+                    },
+                    {
+                        "id": 15,
+                        "title": "Day 15",
+                        "data": "Moving Averages"
+                    },
+                    {
+                        "id": 16,
+                        "title": "Day 16",
+                        "data": "Risk Management in Trading"
+                    },
+                    {
+                        "id": 17,
+                        "title": "Day 17",
+                        "data": "Trading Psychology"
+                    },
+                    {
+                        "id": 18,
+                        "title": "Day 18",
+                        "data": "Intraday Trading Strategies"
+                    },
+                    {
+                        "id": 19,
+                        "title": "Day 19",
+                        "data": "Swing Trading Strategies"
+                    },
+                    {
+                        "id": 20,
+                        "title": "Day 20",
+                        "data": "Long-Term Investment Strategies"
+                    },
+                    {
+                        "id": 21,
+                        "title": "Day 21",
+                        "data": " Introduction to Trading Platforms"
+                    },
+                    {
+                        "id": 22,
+                        "title": "Day 22",
+                        "data": "Using Trading Software"
+                    },
+                    {
+                        "id": 23,
+                        "title": "Day 23",
+                        "data": "Online Trading Accounts"
+                    },
+                    {
+                        "id": 24,
+                        "title": "Day 24",
+                        "data": "Backtesting and Paper Trading"
+                    },
+                    {
+                        "id": 25,
+                        "title": "Day 25",
+                        "data": "Building a Trading Plan"
+                    },
+                    {
+                        "id": 26,
+                        "title": "Day 26",
+                        "data": "Simulated Trading Practice"
+                    },
+                    {
+                        "id": 27,
+                        "title": "Day 27",
+                        "data": "Trading Simulations Continued"
+                    },
+                    {
+                        "id": 28,
+                        "title": "Day 28",
+                        "data": "Analyzing Real Trades"
+                    },
+                    {
+                        "id": 29,
+                        "title": "Day 29",
+                        "data": "Fine-Tuning Your Strategy"
+                    },
+                    {
+                        "id": 30,
+                        "title": "Day 30",
+                        "data": "Graduation and Future Steps"
+                    }
+                ]
+            }
+        ]
+    }
+]
