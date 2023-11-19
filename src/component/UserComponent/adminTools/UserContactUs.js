@@ -5,14 +5,14 @@ import axios from 'axios';
 import URLContext from '../../URLContext';
 
 
-export default function UserTable() {
+export default function UserContactUs() {
   const { url } = useContext(URLContext);
   const [userData, setUserData] = useState([]);
   const { user } = useContext(UserContext);
   useEffect(() => {
     if (user) {
       const getInfo = async () => {
-        const queryParams = `userProfile/?&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}&type=${encodeURIComponent(user.type)}`;
+        const queryParams = `contactUS/?&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}&type=${encodeURIComponent(user.type)}`;
         try {
           const response = await axios.get(url + queryParams);
           setUserData(response.data.data);
@@ -27,17 +27,17 @@ export default function UserTable() {
   }, [user])
   return (
     <div className="table-responsive" style={{ height: '60vh',maxHeight:'80vh', overflowY: 'auto', border:'1px solid grey', padding: 10, marginBottom:10 }}>
-      <h2>User List</h2>
+      <h2>User contacted for demo</h2>
       <Table striped bordered hover>
         <thead>
           <tr>
             <th>Email-ID</th>
             <th>Name</th>
-            <th>Date of Birth</th>
-            <th>Gender</th>
-            <th>Address</th>
-            <th>Country</th>
             <th>Phone Number</th>
+            <th>whatsapp</th>
+            <th>Subject</th>
+            <th>Experience</th>
+            <th>Message</th>
           </tr>
         </thead>
         <tbody>
@@ -45,12 +45,12 @@ export default function UserTable() {
             userData.map((item) => (
               <tr key={item.email}>
                 <td>{item.email}</td>
-                <td>{item.first_name + " " + item.last_name}</td>
-                <td>{item.date_of_birth}</td>
-                <td>{item.gender}</td>
-                <td>{item.street_address + " " + item.city + " " + item.state_province + "-" + item.postal_code}</td>
-                <td>{item.country}</td>
-                <td>{item.phone_number}</td>
+                <td>{item.name}</td>
+                <td>{item.phone}</td>
+                <td>{item.whatsapp}</td>
+                <td>{item.subject}</td>
+                <td>{item.experience}</td>
+                <td>{item.message}</td>
               </tr>
             ))
           ) : (

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Tab, Tabs } from 'react-bootstrap';
 import UserTable from './adminTools/UserTable';
+import UserContactUs from './adminTools/UserContactUs';
 
 export default function Admin() {
     const [key, setKey] = useState('details');
@@ -22,7 +23,7 @@ export default function Admin() {
                 Tab content for Profile
             </Tab>
             <Tab eventKey="request" title="User Request">
-                Tab content for Contact
+                <UserContactUs/>
             </Tab>
             <Tab eventKey="transactions" title="Transaction History">
                 Tab content for Contact
