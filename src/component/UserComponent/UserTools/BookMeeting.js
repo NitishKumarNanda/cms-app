@@ -25,21 +25,21 @@ export default function BookMeeting({updateData}) {
         const formattedDateTime = `${formattedDate} ${selectedTime}`;
 
         try {
-            const response = await axios.post(url, {
-                action: 'BookMeeting',
+            const response = await axios.post(url+'meeting', {
                 email: user.email,
+                token: user.token,
+                type: user.type,
                 time: selectedTime,
                 date: formattedDateTime,
             });
-            if (response.data.status === 1) {
+            if (response.data.status === 200) {
                 updateData.updateData();
                 setSlotConfirmed(response.data);
                 
             }
         } catch (error) {
             console.error('Error:', error);
-
-            setSlotConfirmed({status:0, message:'An error occurred while booking the meeting.'});
+            setSlotConfirmed({status:400, message:'An error occurred while booking the meeting.'});
         }
         setSelectedDate('');
     };
@@ -81,8 +81,8 @@ export default function BookMeeting({updateData}) {
                             Book Meeting
                         </button>
                         {slotConfirmed &&
-                            <div style={{ color: slotConfirmed.status===1?'Green':'Red', padding:5, textAlign:'center', marginTop:10 }}>
-                                {slotConfirmed.message}
+                            <div style={{ color: slotConfirmed.status===200?'Green':'Red', padding:5, textAlign:'center', marginTop:10 }}>
+                                {slotConfirmed.msg}
                             </div>
                         }
                     </div>

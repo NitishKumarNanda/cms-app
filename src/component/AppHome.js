@@ -20,7 +20,8 @@ import A from './Images/DSC2231A.JPG'
 import B from './Images/DSC2208B.JPG'
 import C from './Images/DSC2369C.JPG'
 import D from './Images/DSC2408D.JPG'
-
+import ImageLeftNormal from './Images/Team/MallikaPandey.jpeg'
+import LeftImageNormal from './Misc/LeftImageNormal'
 
 export default function AppHome() {
   const { user } = useContext(UserContext);
@@ -77,7 +78,7 @@ export default function AppHome() {
       }} />
       <WhatMoreDoWeOffer />
       <RightImageData data={{
-        title: 'Meet The Mentor Best Description',
+        title: 'Meet The Mentor',
         details: [`Hello My Name Is Vaibhav Mehta . I'm an experienced educational content creator and
         career coach with more than 5 years of know-how in this field. I specialize in crafting
         engaging educational materials and helping people navigate their career paths.
@@ -91,6 +92,11 @@ export default function AppHome() {
         Speaking in Just 30 Days' for fluent and confident communication. Let Mehta Voice be your
         guide to a brighter future, where success knows no bounds.`],
         imgSrc: ImageRight
+      }} />
+      <LeftImageNormal data={{
+        title: `Meet Couch, Guide And Mentor`,
+        details: [`I am Mallika Pandey , a Biotechnology Engineer , MBA in HR and Finance and ex-banker. I qualified many government exams like IBPS-PO, RBI, NABARD. I served in bank for last 5.5 years but somewhere I always wanted to be into this profession by the inculcation of my skills to hit interview to help our youth. So I am here to help you out with a steady source of motivation and self driven attitude.`],
+        imgSrc: ImageLeftNormal
       }} />
       <GetDemo />
       <StudentsFeedback />

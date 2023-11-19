@@ -9,14 +9,17 @@ export default function ListMeeting() {
     const [meetingData, setMeetingData] = useState([]);
     const { user } = useContext(UserContext);
     const { url } = useContext(URLContext);
+    const [msg,setMsg]=useState("No Data Found")
     const fetchMeetingData = async () => {
         try {
-            const query = `?action=${encodeURIComponent('getAllMeeting')}&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}`;
+            const query = `meeting/?&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}&type=${encodeURIComponent(user.type)}`;
             const response = await axios.get(url + query);
-            if (response.data.status === 1) {
+            console.log(response.data);
+            if (response.data.status === 200) {
                 setMeetingData([...response.data.data]);
-                console.log(response.data.data);
-            } else console.log("Error");
+            } else {
+                setMsg(response.data.error);
+            }
         } catch (error) {
             console.error('Error fetching meeting data:', error);
         }
@@ -24,7 +27,8 @@ export default function ListMeeting() {
 
     useEffect(() => {
         fetchMeetingData();
-    }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [user]);
     return (
         <>
             <div className=" mt-5" style={{ border: '1px solid grey', padding: 20, marginBottom: 20 }}>
@@ -48,7 +52,7 @@ export default function ListMeeting() {
                                         <td>{idx + 1}</td>
                                         <td>{meeting.email}</td>
                                         <td>{meeting.time}</td>
-                                        <td>{meeting.date}</td>
+                                        <td>{(meeting.date).substring(0,10)}</td>
                                     </tr>
                                 ))}
 
@@ -56,7 +60,7 @@ export default function ListMeeting() {
                         </Table>
                         :
                         <div style={{ padding: 20 }}>
-                            <p>No Data Found</p>
+                            <p>{msg}</p>
                         </div>
                     }
                 </div>

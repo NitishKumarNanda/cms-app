@@ -14,7 +14,7 @@ export default function UserTable() {
 
 
       const getInfo = async () => {
-        const queryParams = `?action=${encodeURIComponent('getAllUserDetails')}&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}`;
+        const queryParams = `userProfile/?&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}&type=${encodeURIComponent(user.type)}`;
         try {
           const response = await axios.get(url + queryParams);
           //   setType(response.data.type);
@@ -26,6 +26,7 @@ export default function UserTable() {
       }
       getInfo();
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
   return (
     <div className="table-responsive" style={{ maxHeight: '300px', overflowY: 'auto' }}>

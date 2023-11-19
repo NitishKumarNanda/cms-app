@@ -10,41 +10,71 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const [token, setToken] = useState();
   const { user, setUser } = useContext(UserContext);
-  const [ err, setErr ]= useState(null);
+  const [err, setErr] = useState(null);
+
+  const [resetForm, setResetForm] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState();
+  const [newPassword, setNewPassword] = useState();
+  const [success,setSuccess]=useState();
 
   const handleSubmit = async (element) => {
     element.preventDefault();
-    const queryParams = `?action=${encodeURIComponent('login')}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+    // const queryParams = `?action=${encodeURIComponent('login')}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+    const queryParams = `login/?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
     try {
-      const response = await axios.get(url+queryParams);
-      console.log(response.data);
-      if (response.data.status === 1) {
+      const response = await axios.get(url + queryParams);
 
-        setToken(response.data.token);
-
-        localStorage.setItem('placeMehta', JSON.stringify({ "token": response.data.token, "email": email,"account_type":response.data.detail.account_type }));
-
-        setUser({ "token": response.data.token, "email": email ,"account_type":response.data.detail.account_type })
+      if (response.data.status === 200) {
+        localStorage.setItem('placeMehta', JSON.stringify({ "token": response.data.data.token, "email": response.data.data.email, "type": response.data.data.type }));
+        setUser({ "token": response.data.data.token, "email": response.data.data.email, "type": response.data.data.type })
         navigate('/users');
       } else {
-        console.log("Login failed:", response.data.message);
+        console.log("Login failed:", response.error);
         setPassword('');
-        setErr(response.data.message)
+        setErr(response.data.error)
       }
     } catch (error) {
       console.error("An error occurred:", error);
       setErr(error.message);
     }
   }
+  const  handleReset= async (element) => {
+    element.preventDefault();
+    const payload={
+          email:email,
+          password:password,
+          newPassword:newPassword,
+          confirmPassword:confirmPassword,
+        }
+    try {
+      const response = await axios.put(url + 'passwordReset',payload);
 
-  useEffect(() => {
-    
-    if (user!=null) {
-      navigate('/users');
-      console.log(user.email);
+      if (response.data.status === 200) {
+        setSuccess(response.data.message);
+        setPassword('');
+        setNewPassword('');
+        setConfirmPassword('');
+        setResetForm(false);
+      } else {
+        console.log("Password rest failed:", response.error);
+        setPassword('');
+        setNewPassword('');
+        setConfirmPassword('');
+        setErr(response.data.error)
+      }
+    } catch (error) {
+      console.error("An error occurred:", error);
+      setErr(error.message);
     }
+  }
+  useEffect(() => {
+
+    if (user != null) {
+      navigate('/users');
+      console.log(user);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
   return (
     <section className="gradient-form" style={{ backgroundColor: "#eee", width: '100%' }}>
@@ -58,41 +88,142 @@ export default function Login() {
                     <div className="text-center">
                       <h4 className="mt-1 mb-5 pb-1">Placement with Metha</h4>
                     </div>
-                    <form onSubmit={handleSubmit}>
-                      <p>Please login to your account</p>
-                      {
-                        err &&
-                        <p style={{textAlign:'center', backgroundColor:'salmon',padding:5}}>{err}</p>
-                      }
-                      <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="form2Example11">Username</label>
-                        <input type="email" id="form2Example11" className="form-control"
+                    {!resetForm ?
+                      <form onSubmit={handleSubmit}>
+                        <p>Please login to your account</p>
+                        {
+                          err &&
+                          <p style={{ textAlign: 'center', backgroundColor: 'salmon', padding: 5 }}>{err}</p>
+                        }
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form2Example11">Username</label>
+                          <input type="email" 
+                          id="form2Example11" 
+                          className="form-control"
+                          value={email || ""}
                           placeholder="UserName or E-mail Address" onChange={(e) => { setEmail(e.target.value) }} />
 
-                      </div>
+                        </div>
 
-                      <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="form2Example22">Password</label>
-                        <input type="password" id="form2Example22" className="form-control"
-                          value={password || ''}
-                          placeholder='Password'
-                          onChange={(e) => { setPassword(e.target.value) }} />
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form2Example22">Password</label>
+                          <input type="password" id="form2Example22" className="form-control"
+                            value={password || ''}
+                            placeholder='Password'
+                            onChange={(e) => { setPassword(e.target.value) }} />
 
-                      </div>
+                        </div>
 
-                      <div className="text-center pt-1 mb-5 pb-1">
-                        <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" style={{ width: '80%' }}>Log
-                          in</button><br />
-                        <a className="text-muted" href="/signup">Forgot password?</a>
-                      </div>
+                        <div className="text-center pt-1 mb-5 pb-1">
+                          <button className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" style={{ width: '80%' }}>
+                            Log in
+                          </button>
+                          <br />
+                          <p className="text-muted" onClick={()=>{setResetForm(true)}} style={{cursor:'pointer'}}>Forgot password?</p>
+                        </div>
 
-                      <div className="d-flex align-items-center justify-content-center pb-4">
-                        <p className="mb-0 me-2">Don't have an account?</p>
-                        <button type="button" className="btn btn-outline-danger" onClick={() => { navigate('/users/signup') }}>Create new</button>
-                      </div>
+                        <div className="d-flex align-items-center justify-content-center pb-4">
+                          <p className="mb-0 me-2">Don't have an account?</p>
+                          <button type="button" className="btn btn-outline-danger" onClick={() => { navigate('/users/signup') }}>Create new</button>
+                        </div>
 
-                    </form>
+                      </form>
+                      :
+                      <form onSubmit={handleReset}>
+                        <p>Forgotten Password</p>
+                        {err && (
+                          <p style={{ textAlign: "center", backgroundColor: "salmon", padding: 5 }}>{err}</p>
+                        )}
+                        {
+                          success &&
+                          <p style={{ textAlign: 'center', backgroundColor: 'lightseagreen', padding: 5 }}>{success}</p>
+                        }
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="form2Example11">
+                            Username
+                          </label>
+                          <input
+                            type="email"
+                            id="form2Example11"
+                            className="form-control"
+                            value={email || ""}
+                            placeholder="UserName or E-mail Address"
+                            onChange={(e) => {
+                              setEmail(e.target.value);
+                            }}
+                          />
+                        </div>
 
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="oldPassword">
+                            Old Password
+                          </label>
+                          <input
+                            type="password"
+                            id="oldPassword"
+                            className="form-control"
+                            value={password || ""}
+                            placeholder="Old Password"
+                            onChange={(e) => {
+                              setPassword(e.target.value);
+                            }}
+                          />
+                        </div>
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="newPassword">
+                            New Password
+                          </label>
+                          <input
+                            type="password"
+                            id="newPassword"
+                            className="form-control"
+                            value={newPassword || ""}
+                            placeholder="New Password"
+                            onChange={(e) => {
+                              setNewPassword(e.target.value);
+                            }}
+                          />
+                        </div>
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="confirmPassword">
+                            Confirm Password
+                          </label>
+                          <input
+                            type="password"
+                            id="confirmPassword"
+                            className="form-control"
+                            value={confirmPassword || ""}
+                            placeholder="Confirm Password"
+                            onChange={(e) => {
+                              setConfirmPassword(e.target.value);
+                            }}
+                          />
+                        </div>
+                        <div className="text-center pt-1 mb-5 pb-1">
+                          <button
+                            className="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3"
+                            type="submit"
+                            style={{ width: "80%" }}
+                          >
+                            Reset Password
+                          </button>
+                          <br />
+                        </div>
+
+                        <div className="d-flex align-items-center justify-content-center pb-4">
+                          <p className="mb-0 me-2">Already have an account?</p>
+                          <button
+                            type="button"
+                            className="btn btn-outline-danger"
+                            onClick={() => {
+                              setResetForm(false);
+                            }}
+                          >
+                            Login
+                          </button>
+                        </div>
+                      </form>
+                    }
                   </div>
                 </div>
                 <div className="col-lg-6 col-md-12 d-flex align-items-center gradient-custom-2">

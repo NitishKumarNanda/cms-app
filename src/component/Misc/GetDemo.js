@@ -22,6 +22,17 @@ export default function GetDemo() {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
+    const reset=()=>{
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            subject: '',
+            whatsapp: '',
+            experience: '',
+            message: ''
+        });
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -47,9 +58,9 @@ export default function GetDemo() {
             console.log("Please, Enter your " + Error);
         } else {
             try {
-                const response = await axios.post(url, { action: 'GetDemo', ...formData });
-                if (response.data.status === 1) {
-                    alert("All fields entered");
+                const response = await axios.post(url+'contactUS/', { ...formData });
+                if (response.data.status === 200) {
+                    alert("Submitted");
                 } else {
                     setErrorMsg(response.data.message);
                 }
@@ -171,9 +182,12 @@ export default function GetDemo() {
                                     </Form.Group>
                                 </Col>
                             </Row>
-                            <div style={{display:'flex', justifyContent:'center'}}>
-                            <button className='text-over-image-button' style={{ padding: '10px 60px', marginTop: 20 }} type='submit'>
+                            <div style={{display:'flex', justifyContent:'center', padding:10}}>
+                            <button className='text-over-image-button' style={{ padding: '10px 60px', marginTop: 10 }} type='submit'>
                                 Submit
+                            </button> 
+                            <button className='text-over-image-button' style={{ padding: '10px 60px', marginTop: 10, marginLeft:30 }} onClick={()=>{reset()}}>
+                                Reset
                             </button> 
                             </div>
                             {

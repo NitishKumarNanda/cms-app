@@ -18,8 +18,9 @@ import ErrorPage from './component/UserComponent/UserTools/ErrorPage';
 
 function App() {
   const [user, setUser] = useState();
-  const url="http://backend.placementsbymehta.com/";
+  // const url="http://backend.placementsbymehta.com/";
   // const url = "http://localhost/phpmyadmin/api/";
+  const url = "http://localhost:5000/";
   const router = createBrowserRouter([
     {
       path: "/",

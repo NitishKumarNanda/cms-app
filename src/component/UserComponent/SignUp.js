@@ -7,6 +7,7 @@ import URLContext from '../URLContext';
 export default function SignUp() {
   const navigate = useNavigate();
   const { url } = useContext(URLContext);
+  const [error, setError]=useState();
   const [inputs, setInputs] = useState({ 'name': '', 'email': '', 'password': '', 'confirmPassword': '' });
   const handleChange = (e) => {
     const name = e.target.name;
@@ -17,14 +18,17 @@ export default function SignUp() {
     e.preventDefault();
     if (inputs.Password !== inputs.ConfirmPassword) {
       setInputs(values => ({ ...values, 'password': '', 'confirmPassword': '' }))
+      setError("Password not matching");
       return;
+    } else {
+      const response = await axios.post(url + 'newUser', { ...inputs })
+      console.log(response);
+      if (response.data.status === 200) navigate('/users/login');
+      else if (response.data.status===400) setError("Password not matching");
     }
-    const response = await axios.post(url, { action: 'register', ...inputs })
-    alert(response.data.message);
-    if (response.data.status === 1) navigate('/users/login');
   }
   return (
-    <section className="gradient-form" style={{ backgroundColor: "#eee", width: '100%'}}>
+    <section className="gradient-form" style={{ backgroundColor: "#eee", width: '100%' }}>
       <div className="container py-5 ">
         <div className="row d-flex justify-content-center align-items-center">
           <div className="col-xl-10">
@@ -36,28 +40,31 @@ export default function SignUp() {
                       <h4 className="mt-1 mb-5 pb-1">Placement with Metha</h4>
                     </div>
                     <form onSubmit={handleSubmit}>
-                    <p style={{color:'red'}}>Please details to enter your account</p>
+                      <p style={{ fontWeight: 700 }}>Please details to enter your account</p>
+                      {
+                        error&&<p style={{ color: 'red' }}>{error}</p>
+                      }
                       <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="name">Name</label>
-                        <input type="text" id="name" className="form-control" name='name' onChange={handleChange} placeholder='Full Name' />
+                        <label className="form-label" htmlFor="name">Name*</label>
+                        <input type="text" id="name" className="form-control" name='name' onChange={handleChange} placeholder='Full Name' required/>
 
                       </div>
 
                       <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="email">Email address</label>
-                        <input type="email" id="email" className="form-control" name='email' onChange={handleChange} placeholder='Email-ID' />
+                        <label className="form-label" htmlFor="email">Email address*</label>
+                        <input type="email" id="email" className="form-control" name='email' onChange={handleChange} placeholder='Email-ID' required/>
 
                       </div>
 
                       <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="password">Password</label>
-                        <input type="password" id="password" className="form-control" name='password' onChange={handleChange} placeholder='Password' />
+                        <label className="form-label" htmlFor="password">Password*</label>
+                        <input type="password" id="password" className="form-control" name='password' onChange={handleChange} placeholder='Password' required/>
 
                       </div>
 
                       <div className="form-outline mb-4">
-                        <label className="form-label" htmlFor="confirmPassword">Confirm Password</label>
-                        <input type="password" id="confirmPassword" className="form-control" name='confirmPassword' onChange={handleChange} placeholder='Confirm Password' />
+                        <label className="form-label" htmlFor="confirmPassword">Confirm Password*</label>
+                        <input type="password" id="confirmPassword" className="form-control" name='confirmPassword' onChange={handleChange} placeholder='Confirm Password' required/>
 
                       </div>
                       <div className="text-center pt-1 mb-5 pb-1">

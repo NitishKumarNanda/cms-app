@@ -7,8 +7,8 @@ import URLContext from '../../URLContext'
 export default function UserDetails() {
     const { url } = useContext(URLContext);
     const { user } = useContext(UserContext);
+    const [error, setError] = useState('');
     const fields = [
-
         { field: 'first_name', name: 'First Name', type: 'text' },
         { field: 'last_name', name: 'Last Name', type: 'text' },
         { field: 'email', name: 'Email', type: 'email' },
@@ -24,16 +24,22 @@ export default function UserDetails() {
     ]
     const [isEditing, setEditing] = useState(false)
     const [userDetails, setUserDetails] = useState({
-        email:user.email, first_name: '', last_name: '',
+        email: user.email,
+        first_name: '', last_name: '',
         date_of_birth: '', gender: '', profile_picture_url: '',
         street_address: '', city: '', state_province: '',
         postal_code: '', country: '', phone_number: ''
     })
     const updateSubmit = async (e) => {
         e.preventDefault();
-        const response=await axios.post(url, {action:'updateDetails',...userDetails})
-        console.log(response.data.message + response.data);
-        setEditing(false);
+        console.log(userDetails);
+        const response = await axios.post(url + 'profileData/', {  token: user.token, type : user.type, ...userDetails })
+        console.log(response.data);
+        if(response.data.status===200){
+            setEditing(false);
+        } else{
+            setError(response.data.error);
+        }
     }
     const handleChange = (e) => {
         const name = e.target.name;
@@ -100,54 +106,76 @@ export default function UserDetails() {
     };
     useEffect(() => {
         if (user) {
-            
-
             const getInfo = async () => {
-                const queryParams = `?action=${encodeURIComponent('getUserDetails')}&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}`;
-
+                const queryParams = `?email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}&type=${encodeURIComponent(user.type)}`;
                 try {
-                    const response = await axios.get(url+queryParams);
-                    console.log(response.data);
-                    if(response.data.status===1){
-                        setUserDetails(response.data.data[0]);
+                    const response = await axios.get(url + 'profileData/' + queryParams);
+                    console.log(response);
+                    if (response.data.status === 200) {
+                        console.log(userDetails);
+                        setUserDetails(response.data.data);
                     }
                 } catch (error) {
                     console.error("Error fetching user type:", error);
                 }
-
             }
             getInfo();
         }
-    }, [])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [url, user])
     return (
         <Container>
-            <form onSubmit={updateSubmit}>
-                <Row>
-                    {
-                        fields.map((field, idx) => (
-                            <Col xs={12} sm={12} md={6} lg={5} xl={5} key={idx}>
-                                <div className="form-outline mb-4">
-                                    <label className="form-label" htmlFor={field.field}>{field.name}</label>
-                                    {renderField(field)}
-                                </div>
-                            </Col>
+            {
+                error && 
+                <div style={{backgroundColor: 'rgba(0,0,0,0.5)', color:'white', padding:10, textAlign:'center'}}>
+                    {error}
+                </div>
+            }
+            {
+                isEditing &&
+                <form onSubmit={updateSubmit}>
+                    <Row  style={{marginTop:20}}>
+                        {
+                            fields.map((field, idx) => (
+                                <Col xs={12} sm={12} md={6} lg={5} xl={5} key={idx}>
+                                    <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor={field.field}>{field.name}</label>
+                                        {renderField(field)}
+                                    </div>
+                                </Col>
 
-                        ))
-                    }
-                </Row>
-                {
-                    isEditing &&
+                            ))
+                        }
+                    </Row>
+
                     <div style={{ padding: 10 }}>
                         <Button variant='info' type="submit" style={{ marginRight: 20 }}>Save</Button>
                         <Button variant='info' onClick={() => { setEditing(false) }}>Cancel</Button>
                     </div>
-                }
-            </form>
+
+                </form>
+            }
             {
                 !isEditing &&
-                <div style={{ padding: 10 }}>
-                    <Button variant='info' onClick={() => { setEditing(true) }}>Update Details</Button>
-                </div>
+                <>
+                    <Row style={{marginTop:20}}>
+                        {
+                            fields.map((field, idx) => (
+                                <Col xs={12} sm={12} md={6} lg={5} xl={5} key={idx}>
+                                    <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor={field.field}>{field.name}</label> <br/>
+                                        <div style={{border:'1px solid black', borderRadius:10, padding:5, width:'100%', height:40}}>
+                                            <label className="form-label" htmlFor={field.field} style={{marginLeft:10}}>{userDetails[field.field]}</label>
+                                        </div>
+                                    </div>
+                                </Col>
+                            ))
+                        }
+                    </Row>
+                    <div style={{ padding: 10 }}>
+                        <Button variant='info' onClick={() => { setEditing(true) }}>Update Details</Button>
+                    </div>
+                </>
             }
         </Container>
     )
