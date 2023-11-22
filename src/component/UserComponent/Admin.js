@@ -5,8 +5,9 @@ import UserContactUs from './adminTools/UserContactUs';
 
 export default function Admin() {
     const [key, setKey] = useState('details');
-    
+
     return (
+
         <Tabs
             id="controlled-tab-example"
             activeKey={key}
@@ -14,20 +15,31 @@ export default function Admin() {
             className="mb-3"
         >
             <Tab eventKey="details" title="Summary">
-                Tab content for Home
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                    Tab content for Home
+                </div>
             </Tab>
             <Tab eventKey="users" title="Users">
-                <UserTable/>
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                    <UserTable />
+                </div>
             </Tab>
             <Tab eventKey="courses" title="Courses">
-                Tab content for Profile
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                    Tab content for Profile
+                </div>
             </Tab>
             <Tab eventKey="request" title="User Request">
-                <UserContactUs/>
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                    <UserContactUs />
+                </div>
             </Tab>
             <Tab eventKey="transactions" title="Transaction History">
-                Tab content for Contact
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                    Tab content for Contact
+                </div>
             </Tab>
         </Tabs>
+
     )
 }

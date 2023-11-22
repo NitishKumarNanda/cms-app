@@ -14,7 +14,6 @@ export default function ListMeeting() {
         try {
             const query = `meeting/?&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}&type=${encodeURIComponent(user.type)}`;
             const response = await axios.get(url + query);
-            console.log(response.data);
             if (response.data.status === 200) {
                 setMeetingData([...response.data.data]);
             } else {

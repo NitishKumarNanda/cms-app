@@ -78,7 +78,6 @@ function App() {
     if (sessionData !== null) {
       try {
         const session = JSON.parse(sessionData);
-        // console.log(session);
         setUser(session);
       } catch (error) {
         console.error("Error parsing session data:", error);

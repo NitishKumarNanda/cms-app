@@ -21,9 +21,9 @@ export default function Login() {
   const handleSubmit = async (element) => {
     element.preventDefault();
     // const queryParams = `?action=${encodeURIComponent('login')}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
-    const queryParams = `login/?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+    
     try {
-      const response = await axios.get(url + queryParams);
+      const response = await axios.get(url + `login/?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
 
       if (response.data.status === 200) {
         localStorage.setItem('placeMehta', JSON.stringify({ "token": response.data.data.token, "email": response.data.data.email, "type": response.data.data.type }));
@@ -72,7 +72,6 @@ export default function Login() {
 
     if (user != null) {
       navigate('/users');
-      console.log(user);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])

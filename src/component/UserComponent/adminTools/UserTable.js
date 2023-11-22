@@ -26,9 +26,9 @@ export default function UserTable() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
   return (
-    <div className="table-responsive" style={{ height: '60vh',maxHeight:'80vh', overflowY: 'auto', border:'1px solid grey', padding: 10, marginBottom:10 }}>
+    <div className="table-responsive" style={{ border:'1px solid grey', padding: 10, marginBottom:10 }}>
       <h2>User List</h2>
-      <Table striped bordered hover>
+      <Table striped bordered hover style={{maxHeight:'80%', overflowY: 'auto'}}>
         <thead>
           <tr>
             <th>Email-ID</th>

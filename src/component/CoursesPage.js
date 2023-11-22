@@ -9,7 +9,7 @@ import ImageLeft from './Images/DSC2208.JPG'
 import ImagesBannerOnly from './Misc/ImagesBannerOnly';
 
 export default function CoursesPage() {
-    const data = [{ icon: 'bi bi-person-vcard', step: 'Step 1', data: '30 Days Powerful Job Ready Training' },
+    const data = [{ icon: 'bi bi-person-vcard', step: 'Step 1', data: '15 Days Powerful Job Ready Training' },
     { icon: 'bi bi-camera-reels', step: 'Step 2', data: 'Aptitude & Communication test online' },
     { icon: 'bi bi-person-rolodex', step: 'Step 3', data: 'Get Guaranteed Interview Opportunity With a Company' },
     { icon: 'bi bi-person-check', step: 'Step 4', data: 'Crack interviews And Get Placements In Top Companies' }]

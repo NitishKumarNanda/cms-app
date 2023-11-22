@@ -22,7 +22,6 @@ export default function SignUp() {
       return;
     } else {
       const response = await axios.post(url + 'newUser', { ...inputs })
-      console.log(response);
       if (response.data.status === 200) navigate('/users/login');
       else if (response.data.status===400) setError("Password not matching");
     }
