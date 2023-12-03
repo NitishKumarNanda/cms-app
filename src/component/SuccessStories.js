@@ -5,7 +5,7 @@ import ImagesBannerOnly from './Misc/ImagesBannerOnly'
 
 export default function SuccessStories() {
   return (
-    <div>
+    <div style={{ overflowY: 'auto', height: 'calc(100vh - 135px)' }}>
       <ImagesBannerOnly />
       <hr style={{ color: 'red', border: '3px solid red' }} />
       <h3 className='gradient-text glowing-text' style={{ textAlign: 'center' }}>Success Stories</h3>

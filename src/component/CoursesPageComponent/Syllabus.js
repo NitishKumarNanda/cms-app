@@ -3,17 +3,14 @@ import { Card, Col, Container, Row } from 'react-bootstrap';
 import syllabusData from './SyllabusData.json';
 import ListItem from './ListItem';
 
-export default function Syllabus() {
-    const Syllabus = syllabusData;
-    const [isExpanded, setExpanded] = useState([true, false, false, false]);
+export default function Syllabus(props) {
+    const {courseId} = props;
+    const SyllabusDB = syllabusData;
+    const [isExpanded, setExpanded] = useState(true);
 
-    const handleExpand = (idx) => {
-        const temp = {...isExpanded};
-        temp[idx] = !temp[idx];
-        if (isExpanded[idx]) temp[idx] = false;
-        setExpanded(temp);
+    const handleExpand = () => {
+        setExpanded(!isExpanded);
     };
-
     return (
         <div style={{ backgroundColor: 'lightgrey', padding: 20, marginTop: 50, color:'black' }}>
             <Container>
@@ -22,9 +19,9 @@ export default function Syllabus() {
                 </Row>
                 <Row style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
                     <Col xs={12} sm={12} md={10} lg={10}>
-                        {Syllabus.map((ele, idx) => (
-                            <div key={idx} style={{ marginBottom: 10 }}>
-                                <Card onClick={() => handleExpand(idx)} 
+                        
+                            <div style={{ marginBottom: 10}}>
+                                <Card onClick={() => handleExpand} 
                                     style={{ display: 'flex', 
                                         flexDirection: 'row', 
                                         alignItems: 'center', 
@@ -32,7 +29,7 @@ export default function Syllabus() {
                                         padding: '10px 20px 5px 10px',
                                         cursor:'pointer'
                                     }}>
-                                    <h4 style={{ padding: 3 }}>{ele.part}</h4>
+                                    <h4 style={{ padding: 3 }}>{SyllabusDB[courseId-1].part}</h4>
                                     {/* <i
                                         className={`bi ${isExpanded[idx] ? 'bi-chevron-up' : 'bi-chevron-down'}`}
                                         style={{marginRight:20}}
@@ -41,9 +38,9 @@ export default function Syllabus() {
                                 <Container>
                                     <div style={{ marginLeft: '5%', padding: 10 }}>
                                         <Card style={{padding:20}}>
-                                            <h4>{ele.feature[0]}</h4>
-                                            <p style={{ marginLeft: '5%' }}>{ele.feature[1]}</p>
-                                            {ele.data.map((items, id) => (
+                                            <h4>{SyllabusDB[courseId-1].feature[0]}</h4>
+                                            <p style={{ marginLeft: '5%' }}>{SyllabusDB[courseId-1].feature[1]}</p>
+                                            {SyllabusDB[courseId-1].data.map((items, id) => (
                                                 <div key={id}>
                                                     <ListItem data={{items}}/>
                                                 </div>
@@ -52,7 +49,6 @@ export default function Syllabus() {
                                     </div>
                                 </Container>
                             </div>
-                        ))}
                     </Col>
                 </Row>
             </Container>

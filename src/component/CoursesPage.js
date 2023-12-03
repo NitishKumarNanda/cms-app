@@ -7,32 +7,34 @@ import ImageLeft from './Images/DSC2208.JPG'
 
 
 import ImagesBannerOnly from './Misc/ImagesBannerOnly';
+import { useParams } from 'react-router-dom';
 
 export default function CoursesPage() {
+    const { courseId } = useParams();
     const data = [{ icon: 'bi bi-person-vcard', step: 'Step 1', data: '15 Days Powerful Job Ready Training' },
     { icon: 'bi bi-camera-reels', step: 'Step 2', data: 'Aptitude & Communication test online' },
     { icon: 'bi bi-person-rolodex', step: 'Step 3', data: 'Get Guaranteed Interview Opportunity With a Company' },
     { icon: 'bi bi-person-check', step: 'Step 4', data: 'Crack interviews And Get Placements In Top Companies' }]
     return (
-        <>
-            {/* <BannerForPages BannerTitle='Courses' /> */}
-            <ImagesBannerOnly/>
-            <Container style={{ marginTop: 50, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                <Row style={{ maxWidth: '80%' }}>
+        <div style={{ overflowY: 'auto', height: 'calc(100vh - 135px)' }}>
+            <ImagesBannerOnly />
+            <Container style={{ marginTop: 50, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center' }}>
+                <Row style={{ maxWidth: '100%' }}>
                     {
                         data.map((ele, idx) => (
-                            <Col xs={12} sm={6} md={3} lg={3} key={idx} >
-                                <div className="grow-on-hover" style={{ border: '2px solid red', padding: '3%' }}>
-                                    <i className={`${ele.icon}`} style={{ color: 'red', fontSize: 48 }} />
-                                    <h5>{ele.step}</h5>
-                                    <p>{ele.data}</p>
-                                </div>
-                            </Col>
+                            
+                                    <Col xs={12} sm={6} md={6} lg={3} key={idx} >
+                                        <div className="grow-on-hover" style={{ border: '2px solid red', padding: '3%', width: 200, height: 200 }}>
+                                            <i className={`${ele.icon}`} style={{ color: 'red', fontSize: 48 }} />
+                                            <h5>{ele.step}</h5>
+                                            <p>{ele.data}</p>
+                                        </div><br />
+                                    </Col>
                         ))
                     }
                 </Row>
             </Container>
-            <Syllabus />
+            <Syllabus courseId={courseId}/>
             <WhatMoreDoWeOffer />
             <LeftImageData data={{
                 title: 'We are working at almost twice the capacity',
@@ -47,6 +49,6 @@ export default function CoursesPage() {
                 imgSrc: ImageLeft
             }} />
 
-        </>
+        </div>
     );
 }

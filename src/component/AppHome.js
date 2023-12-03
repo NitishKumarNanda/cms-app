@@ -12,58 +12,44 @@ import LeftImageData from './Misc/LeftImageData'
 import ImageLeft from './Images/DSC2208.JPG'
 import RightImageData from './Misc/RightImageData'
 import ImageRight from './Images/DSC2304.JPG'
-import OurCoursesLeftImage from './Images/DSC2203.JPG'
-import OurCoursesRightImage from './Images/DSC2146.JPG'
+
+
 import { useNavigate } from 'react-router-dom'
 import UserContext from './UserComponent/UserContext'
 import A from './Images/DSC2231A.JPG'
 import B from './Images/DSC2208B.JPG'
 import C from './Images/DSC2369C.JPG'
-import D from './Images/DSC2408D.JPG'
+import D from './Images/DSC2304.JPG'
 import ImageLeftNormal from './Images/Team/MallikaPandey.jpeg'
 import LeftImageNormal from './Misc/LeftImageNormal'
 
 export default function AppHome() {
   const { user } = useContext(UserContext);
-  const navigate=useNavigate();
-  const bannerAction=()=>{
+  const navigate = useNavigate();
+  const bannerAction = () => {
     navigate('/courses');
   }
-  const actionA = ()=>{
-    if(user){
-      alert("Plan A")
-    } else {
-      navigate('/users/login');
-    }
-  }
-  const actionB = ()=>{
-    if(user){
-      alert("Plan B")
-    } else {
-      navigate('/users/login');
-    }
-  }
-  const BookMeeting=()=>{
-    if(user){
+  const BookMeeting = () => {
+    if (user) {
       navigate(`/users`);
     } else {
       navigate('/users/login');
     }
-    
+
   }
   return (
-    <div >
-      <TextOverImage banner={{bannerAction}} />
-      <GrowMoreWith images={{A,B,C,D}}/>
-      <OurCourses action={{actionA,actionB}} images={{OurCoursesLeftImage,OurCoursesRightImage}}/>
-      <br/>
-      <DataImageButton data={{ 
-          title: '1 : 1 Personalized Meetings', 
-          details: [`Reserve Your Exclusive Video Call with Our Top Mentors to Address All Your Questions and Doubts.`], 
-          buttonName: 'Book 1:1 VIdeo Call', 
-          imgSrc: MeetingImage 
-        }} 
-        action={{BookMeeting}}/>
+    <div style={{ overflowY: 'auto', height: 'calc(100vh - 135px)' }}>
+      <TextOverImage banner={{ bannerAction }} />
+      <GrowMoreWith images={{ A, B, C, D }} />
+      <OurCourses />
+      <br />
+      <DataImageButton data={{
+        title: '1 : 1 Personalized Meetings',
+        details: [`Reserve Your Exclusive Video Call with Our Top Mentors to Address All Your Questions and Doubts.`],
+        buttonName: 'Book 1:1 VIdeo Call',
+        imgSrc: MeetingImage
+      }}
+        action={{ BookMeeting }} />
       <LeftImageData data={{
         title: `We're operating at nearly double capacity to help you secure your job.`,
         details: [`We're pulling out all the stops to make your job aspirations a reality. At our peak performance, we're operating at nearly double our regular capacity. Why?`,

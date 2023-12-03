@@ -1,9 +1,8 @@
 import React, { useContext } from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Nav, NavDropdown, Navbar } from 'react-bootstrap'
 import UserContext from '../UserComponent/UserContext';
 
 export default function NavbarMain() {
-  const menus = ['Home', 'Courses', 'Success Stories', 'About us', 'Contact Us'];
   const { user, setUser } = useContext(UserContext);
 
   const HandleLogout = () => {
@@ -22,9 +21,18 @@ export default function NavbarMain() {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
-              {menus.map((ele, idx) =>
+              {/* {menus.map((ele, idx) =>
                 <Nav.Link href={"/" + ele.toLowerCase()} key={idx}>{ele}</Nav.Link>
-              )}
+              )} */}
+              <Nav.Link href="/home" >Home</Nav.Link>
+              <NavDropdown title="Courses" id="basic-nav-dropdown" className="dropdown-dark">
+                <NavDropdown.Item href="/courses/1" className="dropdown-item-dark">15-Day Fast-Track to Your Dream Job Course From Mobile</NavDropdown.Item>
+                <NavDropdown.Item href="/courses/2" className="dropdown-item-dark">Master English Speaking In Just 30 Days Fluent Communication</NavDropdown.Item>
+                <NavDropdown.Item href="/courses/3" className="dropdown-item-dark">Master Stock Market Mysteries in Just 30 Days</NavDropdown.Item>
+              </NavDropdown>
+              <Nav.Link href="/success stories" >Success Stories</Nav.Link>
+              <Nav.Link href="/about us" >About us</Nav.Link>
+              <Nav.Link href="/contact us" >Contact Us</Nav.Link>
             </Nav>
             <Nav>
               {

@@ -2,9 +2,10 @@ import React, { useState } from 'react'
 import { Tab, Tabs } from 'react-bootstrap';
 import UserTable from './adminTools/UserTable';
 import UserContactUs from './adminTools/UserContactUs';
+import AdminCourses from './adminTools/AdminCourses';
 
 export default function Admin() {
-    const [key, setKey] = useState('details');
+    const [key, setKey] = useState('courses');
 
     return (
 
@@ -14,9 +15,9 @@ export default function Admin() {
             onSelect={(k) => setKey(k)}
             className="mb-3"
         >
-            <Tab eventKey="details" title="Summary">
+            <Tab eventKey="courses" title="Courses">
                 <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
-                    Tab content for Home
+                    <AdminCourses/>
                 </div>
             </Tab>
             <Tab eventKey="users" title="Users">
@@ -24,11 +25,7 @@ export default function Admin() {
                     <UserTable />
                 </div>
             </Tab>
-            <Tab eventKey="courses" title="Courses">
-                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
-                    Tab content for Profile
-                </div>
-            </Tab>
+            
             <Tab eventKey="request" title="User Request">
                 <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
                     <UserContactUs />

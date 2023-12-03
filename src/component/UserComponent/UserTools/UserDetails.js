@@ -45,6 +45,10 @@ export default function UserDetails() {
         const value = name === 'profile_picture_url' ? e.target.files[0].name : e.target.value;
         setUserDetails({ ...userDetails, [name]: value })
     }
+    const handleImageName=(e)=>{
+        setUserDetails({ ...userDetails, profile_picture_url: e.filename });
+        console.log(e.filename);
+    }
     const renderField = (field) => {
         switch (field.type) {
             case 'text':
@@ -107,7 +111,7 @@ export default function UserDetails() {
             {
                 isEditing &&
                 <>
-                    <ImageUpload/>
+                    <ImageUpload url={url} handleImageName={handleImageName}/>
                     <form onSubmit={updateSubmit}>
                         <Row style={{ marginTop: 20 }}>
                             {
@@ -134,7 +138,7 @@ export default function UserDetails() {
             {
                 !isEditing &&
                 <>
-                    <ShowUserDetailsOnly userDetails={userDetails} fields={fields} urlImage={url}/>
+                    <ShowUserDetailsOnly userDetails={userDetails} fields={fields} url={url}/>
                     <div style={{ padding: 10 }}>
                         <Button variant='info' onClick={() => { setEditing(true) }}>Update Details</Button>
                     </div>

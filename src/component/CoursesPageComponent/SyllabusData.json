@@ -749,48 +749,8 @@
                     },
                     {
                         "id": 22,
-                        "title": "Day 22",
-                        "data": "Using Trading Software"
-                    },
-                    {
-                        "id": 23,
-                        "title": "Day 23",
-                        "data": "Online Trading Accounts"
-                    },
-                    {
-                        "id": 24,
-                        "title": "Day 24",
-                        "data": "Backtesting and Paper Trading"
-                    },
-                    {
-                        "id": 25,
-                        "title": "Day 25",
-                        "data": "Building a Trading Plan"
-                    },
-                    {
-                        "id": 26,
-                        "title": "Day 26",
-                        "data": "Simulated Trading Practice"
-                    },
-                    {
-                        "id": 27,
-                        "title": "Day 27",
-                        "data": "Trading Simulations Continued"
-                    },
-                    {
-                        "id": 28,
-                        "title": "Day 28",
-                        "data": "Analyzing Real Trades"
-                    },
-                    {
-                        "id": 29,
-                        "title": "Day 29",
-                        "data": "Fine-Tuning Your Strategy"
-                    },
-                    {
-                        "id": 30,
-                        "title": "Day 30",
-                        "data": "Graduation and Future Steps"
+                        "title": "Note : ",
+                        "data": "The remaining topics from the original schedule can be integrated into this day or distributed as per the course structure"
                     }
                 ]
             }

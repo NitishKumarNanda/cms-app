@@ -6,10 +6,10 @@ import GetDemo from './Misc/GetDemo';
 
 export default function ContactUs() {
   return (
-    <>
+    <div style={{ overflowY: 'auto', height: 'calc(100vh - 135px)' }}>
       <ImagesBannerOnly />
       <hr style={{ color: 'red', border: '3px solid red' }} />
-      <h3 className='gradient-text glowing-text' style={{ textAlign: 'center' }}>Contact Us</h3>
+      <h3 className='gradient-text glowing-text' style={{ textAlign: 'center' }}> Contact Us</h3>
       <hr style={{ color: 'red', border: '3px solid red' }} />
       <GetDemo/>
       <MyMap />
@@ -36,6 +36,6 @@ export default function ContactUs() {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   );
 }

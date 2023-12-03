@@ -1,0 +1,137 @@
+{
+    "id": 1,
+    "title": "Privacy Policy",
+    "data": [
+        {
+            "id": 1,
+            "title": "This Privacy Policy outlines how the Platform collects, uses, and discloses user information, addressing privacy rights, and choices. Applicable to all Platform users (‘Learners,’ ‘You’), read this Policy carefully before accessing our services.",
+            "data": [
+                {
+                    "id": 1,
+                    "title": "Personal Information",
+                    "data": [
+                        "Definition: ‘Personal Information’ refers to data identifying a Learner (e.g., name, email, etc.).",
+                        "Sensitive Personal Information: Includes passwords, financial data, health info, and more, as defined by Data Protection Laws."
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Information Collection",
+                    "data": [
+                        "Personal and non-personal identifiable information may be collected during Platform use.",
+                        "Cookies may be used for enhanced user experience."
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "How We Use Information",
+            "data": [
+                {
+                    "id":1,
+                    "title":"We use Personal Information for",
+                    "data":[
+                        "Providing Platform access and services",
+                        "Improving and securing the Platform",
+                        "Communication and marketing purposes"
+                    ]
+                },
+                {
+                    "id":2,
+                    "title":"Your Choices",
+                    "data":[
+                        "Choose information provided",
+                        "Manage communication preferences",
+                        "Control cookie acceptance"
+                    ]
+                },
+                {
+                    "id":3,
+                    "title":"Your Rights",
+                    "data":[
+                        "Confirmation and access",
+                        "Correction and updates",
+                        "Erasure and data portability"
+                    ]
+                },
+                {
+                    "id":4,
+                    "title":"Protection of Your Information",
+                    "data":[
+                        "Measures taken to prevent unauthorized access",
+                        "Limited disclosure to specific entities"
+                    ]
+                },
+                {
+                    "id":5,
+                    "title":"Third-Party Websites",
+                    "data":[
+                        "Platform may contain links to third-party sites",
+                        "We are not responsible for their practices"
+                    ]
+                },
+                {
+                    "id":6,
+                    "title":"Cross-Border Data Transfer",
+                    "data":[
+                        "Information stored and processed in various countries"
+                    ]
+                },
+                {
+                    "id":7,
+                    "title":"Data Retention",
+                    "data":[
+                        "Information retained based on legal obligations and business needs"
+                    ]
+                },
+                {
+                    "id":8,
+                    "title":"Modification to Privacy Policy",
+                    "data":[
+                        "Policy may be modified, and the updated date will be revised"
+                    ]
+                },
+                {
+                    "id":9,
+                    "title":"Grievances",
+                    "data":[
+                        "For questions, concerns, or grievances, contact us at info@aasmacareers.com"
+                    ]
+                }
+            ]
+        },
+        {
+            "id":3,
+            "title":"Country-Specific Additional Rights",
+            "data":[
+                {
+                    "id":1,
+                    "title":"Terms applicable to Indian Residents, UK/EU Residents, and California State Residents are detailed in the Policy.",
+                    "data":[]
+                },
+                {
+                    "id":2,
+                    "title":"Consumer Rights under CCPA",
+                    "data":[
+                        "Right to access and delete Personal Information",
+                        "Requests can be submitted via email or mail",
+                        "Verification process in place"
+                    ]
+                },
+                {
+                    "id":3,
+                    "title":"CCPA Non-Discrimination",
+                    "data":[
+                        "Users will not face discrimination for exercising CCPA rights"
+                    ]
+                },
+                {
+                    "id":4,
+                    "title":"For detailed terms based on your location, refer to the complete Privacy Policy.",
+                    "data":[]
+                }
+            ]
+        }
+    ]
+}

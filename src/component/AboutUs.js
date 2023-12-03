@@ -1,5 +1,4 @@
 import React from 'react'
-import imgSrc from './Images/pic1.jpg'
 import DataImageButton from './Misc/DataImageButton'
 import LeftImageData from './Misc/LeftImageData'
 import AboutUsComponent from './AboutUsComponent/AboutUsComponent'
@@ -25,7 +24,7 @@ export default function AboutUs() {
     };
 
     return (
-        <div>
+        <div style={{ overflowY: 'auto', height: 'calc(100vh - 135px)' }}>
             <DataImageButton data={{
                 title: 'A Small team with grand ambition',
                 details: [`At Mehta Placements we are a dedicated and passionate team with a grand ambition – to empower individuals on their journey to success. We understand that finding the right job and launching a fulfilling career can be a daunting task. That's why we're here to guide you every step of the way.`,

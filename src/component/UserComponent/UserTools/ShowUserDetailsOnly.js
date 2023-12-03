@@ -2,12 +2,15 @@ import React from 'react'
 import { Col, Row } from 'react-bootstrap'
 
 
-export default function ShowUserDetailsOnly({ userDetails, fields, url}) {
+export default function ShowUserDetailsOnly({ userDetails, fields, url }) {
     return (
         <>
-            <div style={{ border: '1px solid black', borderRadius: 5, height: 150, maxWidth: '30%' }}>
-                <img src={url+'uploads/'+userDetails.profile_picture_url} alt='Profile' />
-            </div>
+            {
+                userDetails.profile_picture_url &&
+                <div style={{ border: '1px solid black', borderRadius: 5, height: 150, maxWidth: '30%' }}>
+                    <img src={url + 'uploads/' + userDetails.profile_picture_url} alt='Profile' />
+                </div>
+            }
             <Row style={{ marginTop: 20 }}>
                 {
                     fields.map((field, idx) => (

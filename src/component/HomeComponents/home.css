@@ -5,9 +5,10 @@
 
 .grow-on-hover:hover {
   transform: scale(1.05);
-  background-color: rgba(255, 0, 0, 0.3);
+  background-color: rgba(255, 0, 0, 0.266);
   padding: 10px;
   border-radius: 10px;
+  backdrop-filter: blur(10px);
 }
 
 .col h5 {

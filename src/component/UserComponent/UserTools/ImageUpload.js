@@ -1,12 +1,11 @@
 
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 import { Col, Row, Button, Container } from 'react-bootstrap';
-import URLContext from '../../URLContext';
 
-export default function ImageUpload(){
-  const { url } = useContext(URLContext);
+export default function ImageUpload({url,handleImageName}){
   const [selectedImage, setSelectedImage] = useState(null);
+  const [uploadMsg, setUploadMsg]= useState({ status:0, message: 'No file uploaded' });
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -22,7 +21,8 @@ export default function ImageUpload(){
 
       // Example: Send formData using axios or fetch to your server
       await axios.post(url+'upload', formData).then(response => {
-        console.log('Image uploaded!', response);
+        setUploadMsg(response.data);
+        handleImageName(response.data);
       }).catch(error => {
         console.error('Error uploading image:', error);
       });
@@ -39,7 +39,7 @@ export default function ImageUpload(){
       <Container>
       <Row>
         <Col>
-          <div style={{ height: 170 }}>
+          <div style={{ minHeight: 170 }}>
             <h2>Profile Image</h2>
               <br/>
               <div style={{border:'1px solid grey', borderRadius:3}}>
@@ -50,20 +50,31 @@ export default function ImageUpload(){
                 accept="image/*"
                 onChange={handleImageChange}
               />
-              </div>
-            <br />
+              </div><br />
             <Button onClick={handleImageUpload}>Upload</Button>
+              {
+                (uploadMsg.status===400 || uploadMsg.status===500) && 
+                <div style={{padding:20, color:'red'}}>
+                  <p>{uploadMsg.message}</p>
+                </div>
+              }
+              {
+                uploadMsg.status===200 && 
+                <div style={{padding:20, color:'green'}}>
+                  <p>{uploadMsg.message}</p>
+                </div>
+              }
           </div>
         </Col>
         <Col>
-          <div style={{ height: 170 }}>
+          <div style={{ minHeight: 170 }}>
             {selectedImage && (
               <>
                 <h5>Selected Image Preview:</h5>
                 <img
                   src={URL.createObjectURL(selectedImage)}
                   alt="Selected"
-                  style={{ maxWidth: '300px', height: '80%' }}
+                  style={{ maxWidth: '300px', height: '200px' }}
                 />
               </>
             )}

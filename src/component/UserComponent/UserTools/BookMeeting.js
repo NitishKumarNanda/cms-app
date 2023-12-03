@@ -70,14 +70,15 @@ export default function BookMeeting({updateData}) {
                         <h2>Selected Slot</h2>
                         <p>
                             {selectedDate && selectedTime
-                                ? `${selectedDate.toLocaleDateString()} ${selectedTime}`
-                                : 'No slot selected'}
+                                ? (`${selectedDate.toLocaleDateString()} ${selectedTime}`)
+                                : 
+                                (`No slot selected`)
+                            }
                         </p>
                         <button
                             className="btn btn-primary"
                             onClick={handleMeetingBooking}
-                            disabled={!selectedDate || !selectedTime}
-                        >
+                            disabled={!selectedDate || !selectedTime}>
                             Book Meeting
                         </button>
                         {slotConfirmed &&

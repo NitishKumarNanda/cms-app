@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 import { useContext } from 'react'
 import UserContext from './UserContext'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Normal from './Normal';
 import axios from 'axios';
 import Admin from './Admin';
@@ -13,6 +13,7 @@ export default function Profile() {
   const { url } = useContext(URLContext);
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
+  const { tab } = useParams();
   const handleProfile = () => {
     try {
       const session = JSON.parse(localStorage.getItem('placeMehta'));
@@ -57,7 +58,7 @@ export default function Profile() {
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100%' }}>
       <Container style={{ flex: 1, paddingTop: 10 }}>
         {user && user.type === 'admin' && <Admin />}
-        {user && user.type === 'normal' && <Normal />}
+        {user && user.type === 'normal' && <Normal tab={tab} />}
       </Container>
       <FooterMain />
     </div>

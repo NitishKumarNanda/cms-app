@@ -1,6 +1,6 @@
 {
   "name": "cms-app",
-  "homepage": "http://demo.placementsbymehta.com/",
+  "homepage": "http://placementsbymehta.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import {Tab, Tabs } from 'react-bootstrap'
+import { Tab, Tabs } from 'react-bootstrap'
 import UserDetails from './UserTools/UserDetails';
 import Courses from './UserTools/Courses';
 import Transaction from './UserTools/Transaction';
+import Purchase from './UserTools/Purchase';
 
-export default function Normal() {
-    const [key, setKey] = useState('courses');
-    
+export default function Normal({ tab }) {
+    const [key, setKey] = useState(tab || 'courses');
+
     return (
         <Tabs
             id="controlled-tab-example"
@@ -14,22 +15,30 @@ export default function Normal() {
             onSelect={(k) => setKey(k)}
             className="mb-3"
         >
-            <Tab eventKey="courses" title="Courses">
+            <Tab eventKey="courses" title="Meeting">
                 <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
-                    <Courses/>
+                    <Courses />
                 </div>
             </Tab>
             <Tab eventKey="details" title="User Info">
                 <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
-                    <UserDetails/>
+                    <UserDetails />
                 </div>
             </Tab>
 
             <Tab eventKey="transactions" title="Transaction History">
                 <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
-                    <Transaction/>
+                    <Transaction />
                 </div>
             </Tab>
+            {
+                tab==="purchase" &&
+                <Tab eventKey="purchase" title="Purchase Courses">
+                    <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                        <Purchase/>
+                    </div>
+                </Tab>
+            }
         </Tabs>
     );
 }

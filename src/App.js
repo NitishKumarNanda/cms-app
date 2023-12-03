@@ -18,7 +18,7 @@ import ErrorPage from './component/UserComponent/UserTools/ErrorPage';
 
 function App() {
   const [user, setUser] = useState();
-  // const url="http://backend.placementsbymehta.com/";
+  // const url="http://placementsbymehta.com/backend/api/";
   // const url = "http://localhost/phpmyadmin/api/";
   const url = "http://localhost:5000/";
   const router = createBrowserRouter([
@@ -36,7 +36,7 @@ function App() {
           element: <AppHome />,
         },
         {
-          path: "/courses",
+          path: "/courses/:courseId",
           element: <CoursesPage />,
         },
         {
@@ -67,6 +67,9 @@ function App() {
           element: <SignUp />,
         }, {
           path: "",
+          element: <Profile />
+        }, {
+          path: ":tab/:courseID",
           element: <Profile />
         }
       ]

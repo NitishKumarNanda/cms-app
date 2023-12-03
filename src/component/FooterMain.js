@@ -38,22 +38,27 @@ export default function FooterMain() {
             <Container>
                 <Row >
                     {/* Extra small devices (phones) */}
-                    <Col xs={12} sm={6} md={6} lg={6}>
+                    <Col xs={12} sm={6} md={4} lg={4}>
                         <div className="box">
                             <h5>Mehta Placements</h5>
-                            <p>Copyright © 2023 PlacementByMehta.com</p>
                         </div>
                     </Col>
 
                     {/* Small devices (tablets) */}
-                    <Col xs={12} sm={6} md={6} lg={6}>
+                    <Col xs={12} sm={6} md={4} lg={4}>
                         <div className="box text-center">
                             <p>Mehtavoice12@gmail.com</p>
+                        </div>
+                    </Col>
+                    <Col xs={12} sm={6} md={4} lg={4}>
+                        <div className="box text-center">
                             <p>+91 8405905206</p>
                         </div>
                     </Col>
-
                 </Row>
+                <div className="box text-center">
+                            <p>Copyright © 2023 PlacementsByMehta.com</p>
+                        </div>
             </Container>
         </div>
     )
