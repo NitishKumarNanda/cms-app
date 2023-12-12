@@ -1,13 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Button, Col, Form, Row } from 'react-bootstrap';
+import UserContext from '../UserContext';
+import URLContext from '../../URLContext';
+import axios from 'axios';
 
-export default function PaymentPage() {
+
+export default function PaymentPage({coursesName, courseFee}) {
+    const { url } = useContext(URLContext);
+    const { user } = useContext(UserContext);
     const [agreed, setAgreed] = useState(false);
     const [formData, setFormData] = useState({
-        fullName: '',
-        cardNumber: '',
-        expiryDate: '',
-        cvv: ''
+        email: user.email,
+        token: user.token,
+        type: user.type,
+        transactionId: '',
+        utr: '',
+        name: '',
+        upiId: '',
+        amount: courseFee,
+        coursesName: coursesName
     });
 
     const handleAgreementChange = () => {
@@ -21,24 +32,29 @@ export default function PaymentPage() {
             [name]: value
         });
     };
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (agreed) {
-            // Process payment data (mock action)
             console.log('Payment form submitted:', formData);
             // Reset form data
+            const response = await axios.post(url + 'transaction/courses/', formData)
+
+            if (response.data.status === 200) {
+                alert(response.data.msg)
+            }
             setFormData({
-                fullName: '',
-                cardNumber: '',
-                expiryDate: '',
-                cvv: ''
+                transactionId: '',
+                utr: '',
+                name: '',
+                upiId: '',
+                coursesName: ''
             });
         } else {
             alert('Please agree to the terms and conditions.');
         }
     };
     return (
-        <div style={{maxWidth:600}}>
+        <div style={{ maxWidth: 600 }}>
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check
@@ -48,54 +64,69 @@ export default function PaymentPage() {
                         onChange={handleAgreementChange}
                     />
                 </Form.Group>
-                <Form.Group controlId="formBasicFullName">
-                    <Form.Label>Full Name</Form.Label>
+                <Form.Group controlId="formBasicFullName" style={{ padding: 10 }}>
+                    <Form.Label>Transaction Id</Form.Label>
                     <Form.Control
                         type="text"
-                        name="fullName"
-                        value={formData.fullName}
+                        name="transactionId"
+                        value={formData.transactionId}
                         onChange={handleInputChange}
+                        style={{ boxShadow: '2px 2px 1px 1px rgba(0,0,255,0.7)' }}
                         required
                     />
                 </Form.Group>
-                <Form.Group controlId="formBasicCardNumber">
-                    <Form.Label>Card Number</Form.Label>
+                <Form.Group controlId="formBasicFullName" style={{ padding: 10 }}>
+                    <Form.Label>UPI Transaction Id or UTR</Form.Label>
                     <Form.Control
                         type="text"
-                        name="cardNumber"
-                        value={formData.cardNumber}
+                        name="utr"
+                        value={formData.utr}
                         onChange={handleInputChange}
+                        style={{ boxShadow: '2px 2px 1px 1px rgba(0,0,255,0.7)' }}
+                        required
+                    />
+                </Form.Group>
+                <Form.Group controlId="formBasicCardNumber" style={{ padding: 10 }}>
+                    <Form.Label>Account holder's Name</Form.Label>
+                    <Form.Control
+                        type="text"
+                        name="name"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        style={{ boxShadow: '2px 2px 1px 1px rgba(0,0,255,0.7)' }}
                         required
                     />
                 </Form.Group>
                 <Row>
                     <Col>
-                        <Form.Group controlId="formBasicExpiryDate">
-                            <Form.Label>Expiry Date</Form.Label>
+                        <Form.Group controlId="formBasicExpiryDate" style={{ padding: 10 }}>
+                            <Form.Label>Your UPI Id</Form.Label>
                             <Form.Control
                                 type="text"
-                                name="expiryDate"
-                                value={formData.expiryDate}
+                                name="upiId"
+                                value={formData.upiId}
                                 onChange={handleInputChange}
+                                style={{ boxShadow: '2px 2px 1px 1px rgba(0,0,255,0.7)' }}
                                 required
                             />
                         </Form.Group>
                     </Col>
                     <Col>
-                        <Form.Group controlId="formBasicCVV">
-                            <Form.Label>CVV</Form.Label>
+                        <Form.Group controlId="formBasicCVV" style={{ padding: 10 }}>
+                            <Form.Label>Amount</Form.Label>
                             <Form.Control
-                                type="text"
-                                name="cvv"
-                                value={formData.cvv}
+                                type="num"
+                                name="amount"
+                                value={formData.amount}
                                 onChange={handleInputChange}
-                                required
+                                style={{ boxShadow: '2px 2px 1px 1px rgba(0,0,255,0.7)' }}
+                                disabled
                             />
                         </Form.Group>
                     </Col>
                 </Row>
-                <Button variant="primary" type="submit">
-                    Submit Payment
+                <Button variant="primary" type="submit" style={{ marginLeft: 10, marginTop: 10 }}>
+                    Submit Payment Details
                 </Button>
             </Form>
         </div>

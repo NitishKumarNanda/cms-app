@@ -166,20 +166,3 @@
   background: linear-gradient(to left, #00000078, #ffffff);
   width: 100%;
 }
-
-/* BackgroundVideo.css */
-/*.background-video {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  z-index: -1; /* Place it behind the content 
-}
-*/
-/*#background-video {
-  object-fit: cover; /* Scale the video to cover the entire container 
-  width: 100%;
-}
-*/

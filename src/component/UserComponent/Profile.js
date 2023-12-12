@@ -56,7 +56,7 @@ export default function Profile() {
   }, [user])
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100%' }}>
-      <Container style={{ flex: 1, paddingTop: 10 }}>
+      <Container style={{ flex: 1, paddingTop: 10}}>
         {user && user.type === 'admin' && <Admin />}
         {user && user.type === 'normal' && <Normal tab={tab} />}
       </Container>

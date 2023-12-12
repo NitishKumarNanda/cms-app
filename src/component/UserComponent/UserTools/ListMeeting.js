@@ -30,7 +30,7 @@ export default function ListMeeting() {
     }, [user]);
     return (
         <>
-            <div className=" mt-5" style={{ border: '1px solid grey', padding: 20, marginBottom: 20 }}>
+            <div className=" mt-5" style={{ border: '1px solid grey', padding: 20, marginBottom: 20, minWidth:'900px' }}>
                 <h1>Meeting List</h1>
                 <div className="table-responsive" style={{ maxHeight: '300px', overflowY: 'auto' }}>
                     {meetingData.length > 0 ?

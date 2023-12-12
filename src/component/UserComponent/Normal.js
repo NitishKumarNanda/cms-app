@@ -14,6 +14,7 @@ export default function Normal({ tab }) {
             activeKey={key}
             onSelect={(k) => setKey(k)}
             className="mb-3"
+            style={{ width:'100%' }}
         >
             <Tab eventKey="courses" title="Meeting">
                 <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
