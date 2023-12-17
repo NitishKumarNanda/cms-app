@@ -2,7 +2,6 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import URLContext from '../../URLContext';
 import UserContext from '../UserContext';
-import { Table } from 'react-bootstrap';
 
 export default function TransactionConfirmation() {
     const [data, setData] = useState([]);
@@ -50,9 +49,9 @@ export default function TransactionConfirmation() {
                 token: user.token,
                 type: user.type,
                 transactionId: trans.transactionId,
-                transactionConfirmed:trans.transactionConfirmed,
-                utr:trans.utr,
-                amount:trans.amount
+                transactionConfirmed: trans.transactionConfirmed,
+                utr: trans.utr,
+                amount: trans.amount
             });
             if (response.data.status === 200) {
                 console.log(response.data.data);
@@ -85,54 +84,54 @@ export default function TransactionConfirmation() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
     return (
-        <div className=" mt-5" style={{ border: '1px solid grey', padding: 20, marginBottom: 20, minWidth:'900px' }}>
-            <h1>Transaction List</h1>
+        <div className=" mt-5" style={{ border: '1px solid grey', padding: 20, marginBottom: 20, minWidth: '900px' }}>
+            <h1>Payment received List</h1>
             <div className="table-responsive" style={{ maxHeight: '300px', overflowY: 'auto' }}>
                 {data.length > 0 ?
-                    <Table striped bordered hover>
+                    // <Table striped bordered hover>
+                    <table className="styled-table">
                         <thead>
                             <tr style={{ backgroundColor: '#ff6666' }}>
-                                <th style={{textAlign:'right'}}>S.No.</th>
+                                <th style={{ textAlign: 'right' }}>S.No.</th>
                                 <th>Date</th>
                                 <th>Email</th>
+                                <th>Name</th>
                                 <th>Course Name</th>
                                 <th>Transaction Id</th>
                                 <th>UTR</th>
-                                <th>Name</th>
+                                
                                 <th>UPI ID</th>
                                 <th>Amount</th>
-                                <th>Received</th>
+                                <th>Is Received?</th>
                             </tr>
                         </thead>
                         <tbody>
                             {data.map((transaction, idx) => (
-                                <tr key={idx} style={{
-                                    boxShadow:
-                                      transaction.transactionConfirmed === "Yes"
-                                        ? "0 0 5px 2px rgba(0, 255, 0, 0.5)" // Green shadow
-                                        : "0 0 5px 2px rgba(255, 0, 0, 0.5)" // Red shadow
-                                  }}>
-                                    <td style={{textAlign:'right'}}>{transaction.id}</td>
+                                <tr className={transaction.transactionConfirmed === "Yes" ? "true" : "false"} key={idx} >
+                                    <td style={{ textAlign: 'right' }}>{transaction.id}</td>
                                     <td >{formatDateString(transaction.created_at)}</td>
                                     <td>{transaction.email}</td>
-                                    <td style={{minWidth:200}}>{transaction.coursesName}</td>
+                                    <td>{transaction.name}</td>
+                                    <td style={{ minWidth: 200 }}>{transaction.coursesName}</td>
                                     <td>{transaction.transactionId}</td>
                                     <td>{transaction.utr}</td>
-                                    <td>{transaction.name}</td>
+                                    
                                     <td>{transaction.upiId}</td>
                                     <td>{transaction.amount}</td>
-                                    <td style={{textAlign:'center'}}>
+                                    <td style={{ textAlign: 'center' }}>
                                         <input type='checkbox' value={transaction.id} checked={transaction.transactionConfirmed === "Yes" ? true : false} onChange={handleCheckboxChange} />
                                     </td>
                                 </tr>
                             ))}
 
                         </tbody>
-                    </Table>
-                    :
-                    <div style={{ padding: 20 }}>
-                        <p>{msg}</p>
-                    </div>
+                    
+                    {/* </Table> */}
+                    </table>
+                :
+                <div style={{ padding: 20 }}>
+                    <p>{msg}</p>
+                </div>
                 }
             </div>
         </div>

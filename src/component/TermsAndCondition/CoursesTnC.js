@@ -4,7 +4,7 @@ import coursesTnCData from './coursesTnC.json'
 
 
 export default function CoursesTnC({courseID}) {
-    const data=coursesTnCData[courseID-1];
+    const data=coursesTnCData[courseID];
   return (
     <div>
         <DataHolder data={data}/>

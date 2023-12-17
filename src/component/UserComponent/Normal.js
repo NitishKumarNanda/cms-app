@@ -7,14 +7,13 @@ import Purchase from './UserTools/Purchase';
 
 export default function Normal({ tab }) {
     const [key, setKey] = useState(tab || 'courses');
-
     return (
         <Tabs
             id="controlled-tab-example"
             activeKey={key}
             onSelect={(k) => setKey(k)}
             className="mb-3"
-            style={{ width:'100%' }}
+            style={{ width: '100%' }}
         >
             <Tab eventKey="courses" title="Meeting">
                 <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
@@ -32,14 +31,11 @@ export default function Normal({ tab }) {
                     <Transaction />
                 </div>
             </Tab>
-            {
-                tab==="purchase" &&
-                <Tab eventKey="purchase" title="Purchase Courses">
-                    <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
-                        <Purchase/>
-                    </div>
-                </Tab>
-            }
+            <Tab eventKey="purchase" title="Purchase Courses" >
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                    <Purchase />
+                </div>
+            </Tab>
         </Tabs>
     );
 }

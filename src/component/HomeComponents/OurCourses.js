@@ -24,7 +24,6 @@ export default function OurCourses() {
     const action = (course) => {
         if (user) {
             navigate('/users/purchase/'+course.id);
-            alert(course.courses_name)
         } else {
             navigate('/users/login');
         }
@@ -51,7 +50,7 @@ export default function OurCourses() {
 
     return (
         <Container style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', marginTop: 50 }}>
-            <h3 style={{ fontSize: 44 }}>Our Courses</h3>
+            <h3 id="section" style={{ fontSize: 44 }} >Our Courses</h3>
             {msg && <h5>Loading failed</h5>}
             <Row>
                 {coursesList.length > 0 ?

@@ -7,8 +7,8 @@ export default function ShowUserDetailsOnly({ userDetails, fields, url }) {
         <>
             {
                 userDetails.profile_picture_url &&
-                <div style={{ border: '1px solid black', borderRadius: 5, height: 150, maxWidth: '30%' }}>
-                    <img src={url + 'uploads/' + userDetails.profile_picture_url} alt='Profile' />
+                <div style={{ border: '1px solid black', borderRadius: 5, height: 310, width: 310, padding:5, display:'flex',flexDirection:'row',justifyContent:'center', alignItems:'center' }}>
+                    <img src={url + 'uploads/' + userDetails.profile_picture_url} alt='Profile' height='300px' width='300px' />
                 </div>
             }
             <Row style={{ marginTop: 20 }}>

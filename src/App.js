@@ -15,17 +15,18 @@ import UserContext from './component/UserComponent/UserContext';
 import React, { useEffect, useState } from 'react';
 import URLContext from './component/URLContext';
 import ErrorPage from './component/UserComponent/UserTools/ErrorPage';
+import Error from './component/Error';
 
 function App() {
   const [user, setUser] = useState();
-  // const url="http://placementsbymehta.com/backend/api/";
-  // const url = "http://localhost/phpmyadmin/api/";
-  const url = "http://localhost:5000/";
+  const url="https://backend.placementsbymehta.com/";
+  // // const url = "http://localhost/phpmyadmin/api/";
+  // const url = "http://localhost:8005/";
   const router = createBrowserRouter([
     {
       path: "/",
       element: <Home />,
-      errorElement: <>ErrorPage</>,
+      errorElement: <Error/>,
       children: [
         {
           path: "",

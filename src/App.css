@@ -1,0 +1,100 @@
+/* Basic table styles */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin: 20px 0;
+}
+
+.styled-table th,
+.styled-table td {
+  border: 1px solid whitesmoke;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Table header styles */
+.styled-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Apply background colors based on class */
+.styled-table tbody tr.true {
+  background-color: rgba(0, 255, 8, 0.4);
+}
+
+.styled-table tbody tr.false {
+  background-color: rgba(255, 42, 0, 0.8);
+}
+
+/* Table row hover effect */
+
+.styled-table tbody tr.true:hover {
+  background-color: rgba(0, 128, 0, 0.6);
+  color: white;
+  font-weight: 600;
+}
+
+.styled-table tbody tr.false:hover {
+  background-color: rgba(255, 0, 0, 0.6);
+  color: white;
+  font-weight: 600;
+}
+
+/* Error container */
+.error-container {
+  text-align: center;
+}
+
+/* Error content styles */
+.error-content {
+  background-color: #fff;
+  /* Background color for error content */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Error heading styles */
+.error-heading {
+  font-size: 3em;
+  color: #e74c3c;
+  /* Red color for heading */
+  margin-bottom: 10px;
+}
+
+/* Error message styles */
+.error-message {
+  font-size: 1.5em;
+  color: #333;
+  /* Black color for message */
+  margin-bottom: 20px;
+}
+
+/* Error description styles */
+.error-description {
+  font-size: 1em;
+  color: #777;
+  /* Gray color for description */
+  margin-bottom: 20px;
+}
+
+/* Error link styles */
+.error-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3498db;
+  /* Blue color for link */
+  color: #fff;
+  /* White color for link text */
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for link */
+.error-link:hover {
+  background-color: #2980b9;
+  /* Darker blue on hover */
+}

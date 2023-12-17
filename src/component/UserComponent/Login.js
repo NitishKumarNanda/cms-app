@@ -6,13 +6,15 @@ import UserContext from './UserContext';
 import URLContext from '../URLContext';
 
 export default function Login() {
+//////////////////////////////////////////////
+// const { tab,courseID } = useParams();
+//////////////////////////---------------------------------------------
   const { url } = useContext(URLContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const { user, setUser } = useContext(UserContext);
   const [err, setErr] = useState(null);
-
   const [resetForm, setResetForm] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState();
   const [newPassword, setNewPassword] = useState();
@@ -28,7 +30,7 @@ export default function Login() {
       if (response.data.status === 200) {
         localStorage.setItem('placeMehta', JSON.stringify({ "token": response.data.data.token, "email": response.data.data.email, "type": response.data.data.type }));
         setUser({ "token": response.data.data.token, "email": response.data.data.email, "type": response.data.data.type })
-        navigate('/users');
+        navigate("/users")
       } else {
         console.log("Login failed:", response.error);
         setPassword('');
@@ -85,7 +87,7 @@ export default function Login() {
                 <div className="col-lg-6 col-md-12">
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-center">
-                      <h4 className="mt-1 mb-5 pb-1">Placement with Metha</h4>
+                      <h4 className="mt-1 mb-5 pb-1">Placement with Mehta</h4>
                     </div>
                     {!resetForm ?
                       <form onSubmit={handleSubmit}>

@@ -27,7 +27,7 @@ export default function AppHome() {
   const { user } = useContext(UserContext);
   const navigate = useNavigate();
   const bannerAction = () => {
-    navigate('/courses');
+    navigate('/courses/1');
   }
   const BookMeeting = () => {
     if (user) {

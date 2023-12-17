@@ -36,7 +36,7 @@ export default function SignUp() {
                 <div className="col-lg-6">
                   <div className="card-body p-md-5 mx-md-4">
                     <div className="text-center">
-                      <h4 className="mt-1 mb-5 pb-1">Placement with Metha</h4>
+                      <h4 className="mt-1 mb-5 pb-1">Placement with Mehta</h4>
                     </div>
                     <form onSubmit={handleSubmit}>
                       <p style={{ fontWeight: 700 }}>Please details to enter your account</p>
