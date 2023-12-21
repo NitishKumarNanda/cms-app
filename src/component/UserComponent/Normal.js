@@ -16,23 +16,23 @@ export default function Normal({ tab }) {
             style={{ width: '100%' }}
         >
             <Tab eventKey="courses" title="Meeting">
-                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 175px)' }}>
                     <Courses />
                 </div>
             </Tab>
             <Tab eventKey="details" title="User Info">
-                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 175px)' }}>
                     <UserDetails />
                 </div>
             </Tab>
 
             <Tab eventKey="transactions" title="Transaction History">
-                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 175px)' }}>
                     <Transaction />
                 </div>
             </Tab>
             <Tab eventKey="purchase" title="Purchase Courses" >
-                <div style={{ overflowY: 'auto', height: 'calc(100vh - 200px)' }}>
+                <div style={{ overflowY: 'auto', height: 'calc(100vh - 175px)' }}>
                     <Purchase />
                 </div>
             </Tab>

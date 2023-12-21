@@ -3,7 +3,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { Col, Row, Button, Container } from 'react-bootstrap';
 
-export default function ImageUpload({url,handleImageName}){
+export default function ImageUpload({url,handleImageName,title}){
   const [selectedImage, setSelectedImage] = useState(null);
   const [uploadMsg, setUploadMsg]= useState({ status:0, message: 'No file uploaded' });
 
@@ -36,12 +36,11 @@ export default function ImageUpload({url,handleImageName}){
 
   return (
     <>
-      <Container>
+      <Container style={{border:'1px solid black', padding :5}}>
       <Row>
         <Col>
           <div style={{ minHeight: 170 }}>
-            <h2>Profile Image</h2>
-              <br/>
+            <h4>{title || "Profile Image"}</h4>
               <div style={{border:'1px solid grey', borderRadius:3}}>
               <input
                 id="imageUploader"

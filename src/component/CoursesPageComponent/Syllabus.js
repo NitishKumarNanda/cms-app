@@ -12,13 +12,9 @@ export default function Syllabus(props) {
         setExpanded(!isExpanded);
     };
     return (
-        <div style={{ backgroundColor: 'lightgrey', padding: 20, marginTop: 50, color: 'black' }}>
-            <Container>
-                <Row style={{ fontSize: 48, marginLeft: '5%' }}>
-                    <p className='gradient-text' style={{ padding: 10, fontSize: 48, fontWeight: 700 }}>Syllabus</p>
-                </Row>
+            <Container style={{width:'100%'}}>
                 <Row style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <Col xs={12} sm={12} md={10} lg={10}>
+                    <Col xs={12} sm={12} md={12} lg={12}>
                         <div style={{ marginBottom: 10 }}>
                             <Card onClick={() => handleExpand}
                                 style={{
@@ -52,6 +48,5 @@ export default function Syllabus(props) {
                     </Col>
                 </Row>
             </Container>
-        </div>
     );
 }

@@ -9,6 +9,7 @@ export default function PaymentPage({coursesName, courseFee}) {
     const { url } = useContext(URLContext);
     const { user } = useContext(UserContext);
     const [agreed, setAgreed] = useState(false);
+    const [error,setError]=useState(false);
     const [formData, setFormData] = useState({
         email: user.email,
         token: user.token,
@@ -41,13 +42,17 @@ export default function PaymentPage({coursesName, courseFee}) {
 
             if (response.data.status === 200) {
                 alert(response.data.msg)
+                setError(false);
+            } else {
+                setError(true);
             }
             setFormData({
                 transactionId: '',
                 utr: '',
                 name: '',
                 upiId: '',
-                coursesName: ''
+                coursesName: coursesName || '',
+                amount: courseFee || 0
             });
         } else {
             alert('Please agree to the terms and conditions.');
@@ -55,6 +60,9 @@ export default function PaymentPage({coursesName, courseFee}) {
     };
     return (
         <div style={{ maxWidth: 600 }}>
+            {
+                error && <p style={{fontWeight:600, color:'red'}}>!!! Invalid Data or Duplicate entry !!!</p>
+            }
             <Form onSubmit={handleSubmit}>
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check

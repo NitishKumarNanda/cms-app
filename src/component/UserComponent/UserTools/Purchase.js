@@ -11,12 +11,16 @@ import PrivacyPolicy from '../../TermsAndCondition/PrivacyPolicy';
 import PaymentPage from './PaymentPage';
 import QRCode from "react-qr-code";
 import CoursesTnC from '../../TermsAndCondition/CoursesTnC'
+import Syllabus from '../../CoursesPageComponent/Syllabus';
+import UserDetails from './UserDetails';
+
 
 export default function Purchase() {
     const { courseID } = useParams();
     const { url } = useContext(URLContext);
     const [coursesList, setCoursesList] = useState([]);
     const [isLoading, setLoading] = useState(true);
+    const [Saving, setSaving] = useState(true);
     const [selectedCourse, setSelectedCourse] = useState(coursesList[courseID - 1] || null)
     const [selectedId, setSelectedId] = useState(courseID || 0);
     const [courseFee, setCourseFee] = useState(0);
@@ -50,6 +54,7 @@ export default function Purchase() {
     }
     useEffect(() => {
         getCourses();
+        console.log(selectedId);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(() => {
@@ -99,37 +104,57 @@ export default function Purchase() {
             {
                 selectedId >= 0 ?
                     <>
-                        <Row>
-                            <h4 style={{ marginTop: 20 }}>{selectedCourse.courses_name}</h4>
-                            <div style={{ border: '2px solid black', height: '40vh', overflowY: 'auto' }}>
-                                <TnC />
-                                <hr />
-                                <PrivacyPolicy />
-                                <hr />
-                                <CoursesTnC courseID={selectedId} />
-                                <hr />
-                                <GeneralFAQs />
-                                <hr />
-                                <RefundPolicy />
-                                <hr />
-                                <ShippingAndDeliveryPolicy />
+                        <br />
+                        <h3>Syllabus</h3>
+                        <Syllabus courseId={selectedId + 1} />
 
-                            </div>
-                            <h6 style={{ padding: 5 }}> Amount to be paid ₹ {courseFee} /-  as course fee </h6>
+                        {
+                            Saving ?
+                                <>
+                                    <Row>
+                                        <h4>Upload your Picture and Resume then fill all the fields and save to continue for payment</h4>
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <UserDetails enableEditing={Saving} isSaved={setSaving} />
+                                        </Col>
+                                    </Row>
+                                </>
+                                :
+                                <>
+                                    <Row>
+                                        <h4 style={{ marginTop: 20 }}>Terms and Conditions</h4>
+                                        <div style={{ border: '2px solid black', height: '40vh', overflowY: 'auto' }}>
+                                            <TnC />
+                                            <hr />
+                                            <PrivacyPolicy />
+                                            <hr />
+                                            <CoursesTnC courseID={selectedId} />
+                                            <hr />
+                                            <GeneralFAQs />
+                                            <hr />
+                                            <RefundPolicy />
+                                            <hr />
+                                            <ShippingAndDeliveryPolicy />
 
-                        </Row>
-                        <Row style={{ padding: 10 }}>
-                            <Col xs={12} sm={12} md={6} lg={6} >
-                                <PaymentPage coursesName={selectedCourse.courses_name} courseFee={courseFee} />
-                            </Col>
-                            <Col xs={12} sm={12} md={6} lg={6} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
-                                <p> Scan and pay courses fee, fill the transaction details and submit the form, <br />so that we can confirm your payment.</p>
-                                <Card style={{ padding: 10 }}>
-                                    <QRCode value={`upi://pay?pa=vmehta1210@apl&pn=Placements By Mehta&am=${courseFee}&tn=${coursesList[selectedId].courses_name}`} />
-                                </Card>
-                                <p>If above QR code doesn't work then <br /> UPI on<strong> 7992475976 </strong></p>
-                            </Col>
-                        </Row>
+                                        </div>
+                                        <h6 style={{ padding: 5 }}> Amount to be paid ₹ {courseFee} /-  as course fee </h6>
+
+                                    </Row>
+                                    <Row style={{ padding: 10 }}>
+                                        <Col xs={12} sm={12} md={6} lg={6} >
+                                            <PaymentPage coursesName={selectedCourse.courses_name} courseFee={courseFee} />
+                                        </Col>
+                                        <Col xs={12} sm={12} md={6} lg={6} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+                                            <p> Scan and pay courses fee, fill the transaction details and submit the form, <br />so that we can confirm your payment.</p>
+                                            <Card style={{ padding: 10 }}>
+                                                <QRCode value={`upi://pay?pa=vmehta1210@apl&pn=Placements By Mehta&am=${courseFee}&tn=${coursesList[selectedId].courses_name}`} />
+                                            </Card>
+                                            <p>If above QR code doesn't work then <br /> UPI on<strong> 7992475976 </strong> (PhonePe, Paytm, GPay)</p>
+                                        </Col>
+                                    </Row>
+                                </>
+                        }
                     </>
                     :
                     <></>

@@ -19,9 +19,9 @@ import Error from './component/Error';
 
 function App() {
   const [user, setUser] = useState();
-  const url="https://backend.placementsbymehta.com/";
+  // const url="https://backend.placementsbymehta.com/";
   // // const url = "http://localhost/phpmyadmin/api/";
-  // const url = "http://localhost:8005/";
+  const url = "http://localhost:8005/";
   const router = createBrowserRouter([
     {
       path: "/",

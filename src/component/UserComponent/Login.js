@@ -1,14 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import './user.css'
 import axios from 'axios';
 import UserContext from './UserContext';
 import URLContext from '../URLContext';
+import Questions from './Question.json';
+
 
 export default function Login() {
-//////////////////////////////////////////////
-// const { tab,courseID } = useParams();
-//////////////////////////---------------------------------------------
+  //////////////////////////////////////////////
+  // const { tab,courseID } = useParams();
+  //////////////////////////---------------------------------------------
   const { url } = useContext(URLContext);
   const navigate = useNavigate();
   const [email, setEmail] = useState();
@@ -18,19 +20,30 @@ export default function Login() {
   const [resetForm, setResetForm] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState();
   const [newPassword, setNewPassword] = useState();
-  const [success,setSuccess]=useState();
+  const [ques, setQues] = useState();
+  const [ans, setAns] = useState();
+  const [success, setSuccess] = useState();
+  //---------------------------------------
+  const securityQuestions = Questions
+  const location = useLocation();
+  const { tab, courseID } = location.state || {};
 
+  //----------------------------------------
   const handleSubmit = async (element) => {
     element.preventDefault();
     // const queryParams = `?action=${encodeURIComponent('login')}&email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
-    
+
     try {
       const response = await axios.get(url + `login/?email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`);
 
       if (response.data.status === 200) {
         localStorage.setItem('placeMehta', JSON.stringify({ "token": response.data.data.token, "email": response.data.data.email, "type": response.data.data.type }));
         setUser({ "token": response.data.data.token, "email": response.data.data.email, "type": response.data.data.type })
-        navigate("/users")
+        if (tab === null || tab === undefined || tab === "") {
+          navigate("/users");
+        } else {
+          navigate('/users/' + tab + '/' + courseID);
+        }
       } else {
         console.log("Login failed:", response.error);
         setPassword('');
@@ -41,16 +54,17 @@ export default function Login() {
       setErr(error.message);
     }
   }
-  const  handleReset= async (element) => {
+  const handleReset = async (element) => {
     element.preventDefault();
-    const payload={
-          email:email,
-          password:password,
-          newPassword:newPassword,
-          confirmPassword:confirmPassword,
-        }
+    const payload = {
+      email: email,
+      ques: ques,
+      ans: ans,
+      newPassword: newPassword,
+      confirmPassword: confirmPassword,
+    }
     try {
-      const response = await axios.put(url + 'passwordReset',payload);
+      const response = await axios.put(url + 'passwordReset', payload);
 
       if (response.data.status === 200) {
         setSuccess(response.data.message);
@@ -60,7 +74,8 @@ export default function Login() {
         setResetForm(false);
       } else {
         console.log("Password rest failed:", response.error);
-        setPassword('');
+        setQues('');
+        setAns('');
         setNewPassword('');
         setConfirmPassword('');
         setErr(response.data.error)
@@ -71,9 +86,12 @@ export default function Login() {
     }
   }
   useEffect(() => {
-
     if (user != null) {
-      navigate('/users');
+      if (tab === null || tab === undefined || tab === "") {
+        navigate("/users");
+      } else {
+        navigate('/users/' + tab + '/' + courseID);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user])
@@ -98,11 +116,11 @@ export default function Login() {
                         }
                         <div className="form-outline mb-4">
                           <label className="form-label" htmlFor="form2Example11">Username</label>
-                          <input type="email" 
-                          id="form2Example11" 
-                          className="form-control"
-                          value={email || ""}
-                          placeholder="UserName or E-mail Address" onChange={(e) => { setEmail(e.target.value) }} />
+                          <input type="email"
+                            id="form2Example11"
+                            className="form-control"
+                            value={email || ""}
+                            placeholder="UserName or E-mail Address" onChange={(e) => { setEmail(e.target.value) }} />
 
                         </div>
 
@@ -120,12 +138,12 @@ export default function Login() {
                             Log in
                           </button>
                           <br />
-                          <p className="text-muted" onClick={()=>{setResetForm(true)}} style={{cursor:'pointer'}}>Forgot password?</p>
+                          <p className="text-muted" onClick={() => { setResetForm(true) }} style={{ cursor: 'pointer' }}>Forgot password?</p>
                         </div>
 
                         <div className="d-flex align-items-center justify-content-center pb-4">
                           <p className="mb-0 me-2">Don't have an account?</p>
-                          <button type="button" className="btn btn-outline-danger" onClick={() => { navigate('/users/signup') }}>Create new</button>
+                          <button type="button" className="btn btn-outline-danger" onClick={() => { navigate('/users/signup', { state: { tab: 'purchase', courseID: courseID } }) }}>Create new</button>
                         </div>
 
                       </form>
@@ -141,14 +159,14 @@ export default function Login() {
                         }
                         <div className="form-outline mb-4">
                           <label className="form-label" htmlFor="form2Example11">
-                            Username
+                            Email-ID*
                           </label>
                           <input
                             type="email"
                             id="form2Example11"
                             className="form-control"
                             value={email || ""}
-                            placeholder="UserName or E-mail Address"
+                            placeholder="E-mail ID"
                             onChange={(e) => {
                               setEmail(e.target.value);
                             }}
@@ -156,23 +174,26 @@ export default function Login() {
                         </div>
 
                         <div className="form-outline mb-4">
-                          <label className="form-label" htmlFor="oldPassword">
-                            Old Password
-                          </label>
-                          <input
-                            type="password"
-                            id="oldPassword"
-                            className="form-control"
-                            value={password || ""}
-                            placeholder="Old Password"
-                            onChange={(e) => {
-                              setPassword(e.target.value);
-                            }}
-                          />
+                          <label className="form-label" htmlFor="ques">Security Question*</label>
+                          <select id="ques" className="form-select" name='ques' onChange={(e) => {
+                            setQues(e.target.value);
+                          }} required>
+                            <option value="">Select a Security Question</option>
+                            {securityQuestions.map((question, index) => (
+                              <option key={index} value={question}>{question}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="form-outline mb-4">
+                          <label className="form-label" htmlFor="ans">Security Answer*</label>
+                          <input type="ans" id="ans" className="form-control" name='ans' onChange={(e) => {
+                            setAns(e.target.value);
+                          }} placeholder='Security Answer' required />
+
                         </div>
                         <div className="form-outline mb-4">
                           <label className="form-label" htmlFor="newPassword">
-                            New Password
+                            New Password*
                           </label>
                           <input
                             type="password"
@@ -187,7 +208,7 @@ export default function Login() {
                         </div>
                         <div className="form-outline mb-4">
                           <label className="form-label" htmlFor="confirmPassword">
-                            Confirm Password
+                            Confirm Password*
                           </label>
                           <input
                             type="password"

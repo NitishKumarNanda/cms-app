@@ -5,8 +5,9 @@ import UserContext from '../UserContext'
 import URLContext from '../../URLContext'
 import ShowUserDetailsOnly from './ShowUserDetailsOnly'
 import ImageUpload from './ImageUpload'
+import ResumeUpload from './ResumeUpload'
 
-export default function UserDetails() {
+export default function UserDetails({enableEditing, isSaved}) {
     const { url } = useContext(URLContext);
     const { user } = useContext(UserContext);
     const [error, setError] = useState('');
@@ -20,15 +21,16 @@ export default function UserDetails() {
         { field: 'state_province', name: 'State Province', type: 'text' },
         { field: 'postal_code', name: 'Postal Code', type: 'text' },
         { field: 'country', name: 'Country', type: 'text' },
-        { field: 'phone_number', name: 'Phone Number', type: 'tel' }
+        { field: 'phone_number', name: 'Phone Number', type: 'tel' },
+        { field: 'whatsApp', name: 'Whats App Number', type: 'tel' }
     ]
-    const [isEditing, setEditing] = useState(false)
+    const [isEditing, setEditing] = useState(enableEditing || false)
     const [userDetails, setUserDetails] = useState({
         email: user.email,
         first_name: '', last_name: '',
         date_of_birth: '', gender: '', profile_picture_url: '',
         street_address: '', city: '', state_province: '',
-        postal_code: '', country: '', phone_number: ''
+        postal_code: '', country: '', phone_number: '', whatsApp: '', resume_url: ''
     })
     const updateSubmit = async (e) => {
         e.preventDefault();
@@ -36,6 +38,7 @@ export default function UserDetails() {
 
         if (response.data.status === 200) {
             setEditing(false);
+            if(isSaved!==null && isSaved!==undefined) isSaved(false);
         } else {
             setError(response.data.error);
         }
@@ -45,8 +48,11 @@ export default function UserDetails() {
         const value = name === 'profile_picture_url' ? e.target.files[0].name : e.target.value;
         setUserDetails({ ...userDetails, [name]: value })
     }
-    const handleImageName=(e)=>{
+    const handleImageName = (e) => {
         setUserDetails({ ...userDetails, profile_picture_url: e.filename });
+    }
+    const handleDocumentName = (e) => {
+        setUserDetails({ ...userDetails, resume_url: e.filename });
         console.log(e.filename);
     }
     const renderField = (field) => {
@@ -61,6 +67,7 @@ export default function UserDetails() {
                         name={field.field}
                         placeholder={field.name}
                         value={userDetails[field.field] || ''}
+                        style={{ boxShadow: '2px 2px 1px 1px rgba(0,0,255,0.7)' }}
                         onChange={handleChange}
                         disabled={!isEditing}
                     />
@@ -71,6 +78,7 @@ export default function UserDetails() {
                         name={field.field}
                         value={userDetails[field.field] || ''}
                         onChange={handleChange}
+                        style={{ boxShadow: '2px 2px 1px 1px rgba(0,0,255,0.7)' }}
                         disabled={!isEditing}
                     >
                         <option value="">Select {field.name}</option>
@@ -111,7 +119,9 @@ export default function UserDetails() {
             {
                 isEditing &&
                 <>
-                    <ImageUpload url={url} handleImageName={handleImageName}/>
+                    <ImageUpload url={url} handleImageName={handleImageName} /> 
+                    <br/>
+                    <ResumeUpload url={url} handleDocumentName={handleDocumentName} />
                     <form onSubmit={updateSubmit}>
                         <Row style={{ marginTop: 20 }}>
                             {
@@ -138,7 +148,7 @@ export default function UserDetails() {
             {
                 !isEditing &&
                 <>
-                    <ShowUserDetailsOnly userDetails={userDetails} fields={fields} url={url}/>
+                    <ShowUserDetailsOnly userDetails={userDetails} fields={fields} url={url} />
                     <div style={{ padding: 10 }}>
                         <Button variant='info' onClick={() => { setEditing(true) }}>Update Details</Button>
                     </div>

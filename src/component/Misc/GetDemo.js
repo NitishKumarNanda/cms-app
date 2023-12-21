@@ -81,7 +81,7 @@ export default function GetDemo() {
             }}
         >
             <Container>
-                <Card style={{ border: '2px solid red', backgroundColor: 'rgba(0,0,0,0.6)', color: 'white', textShadow: '2px 2px red' }}>
+                <Card style={{ border: '2px solid red', backgroundColor: 'rgba(0,0,0,0.6)', color: 'white', fontWeight:600}}>
                     <Form onSubmit={handleSubmit} style={{ padding: 15 }}>
                         <Container>
                             <Row>

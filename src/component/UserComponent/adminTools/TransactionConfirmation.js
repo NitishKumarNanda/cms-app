@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import URLContext from '../../URLContext';
 import UserContext from '../UserContext';
+import { Col, Row } from 'react-bootstrap';
 
 export default function TransactionConfirmation() {
     const [data, setData] = useState([]);
@@ -13,6 +14,7 @@ export default function TransactionConfirmation() {
             const query = `transaction/?&email=${encodeURIComponent(user.email)}&token=${encodeURIComponent(user.token)}&type=${encodeURIComponent(user.type)}`;
             const response = await axios.get(url + query);
             if (response.data.status === 200) {
+                console.log(response.data.data);
                 setData([...response.data.data]);
             } else {
                 setMsg(response.data.error);
@@ -84,54 +86,43 @@ export default function TransactionConfirmation() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user]);
     return (
-        <div className=" mt-5" style={{ border: '1px solid grey', padding: 20, marginBottom: 20, minWidth: '900px' }}>
+        <div style={{ border: '1px solid grey',padding:10, marginBottom: 20}}>
             <h1>Payment received List</h1>
-            <div className="table-responsive" style={{ maxHeight: '300px', overflowY: 'auto' }}>
+            
+            <div style={{ maxHeight: '500px', overflowY: 'auto' }}>
                 {data.length > 0 ?
                     // <Table striped bordered hover>
-                    <table className="styled-table">
-                        <thead>
-                            <tr style={{ backgroundColor: '#ff6666' }}>
-                                <th style={{ textAlign: 'right' }}>S.No.</th>
-                                <th>Date</th>
-                                <th>Email</th>
-                                <th>Name</th>
-                                <th>Course Name</th>
-                                <th>Transaction Id</th>
-                                <th>UTR</th>
-                                
-                                <th>UPI ID</th>
-                                <th>Amount</th>
-                                <th>Is Received?</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.map((transaction, idx) => (
-                                <tr className={transaction.transactionConfirmed === "Yes" ? "true" : "false"} key={idx} >
-                                    <td style={{ textAlign: 'right' }}>{transaction.id}</td>
-                                    <td >{formatDateString(transaction.created_at)}</td>
-                                    <td>{transaction.email}</td>
-                                    <td>{transaction.name}</td>
-                                    <td style={{ minWidth: 200 }}>{transaction.coursesName}</td>
-                                    <td>{transaction.transactionId}</td>
-                                    <td>{transaction.utr}</td>
-                                    
-                                    <td>{transaction.upiId}</td>
-                                    <td>{transaction.amount}</td>
-                                    <td style={{ textAlign: 'center' }}>
-                                        <input type='checkbox' value={transaction.id} checked={transaction.transactionConfirmed === "Yes" ? true : false} onChange={handleCheckboxChange} />
-                                    </td>
-                                </tr>
-                            ))}
+                    <>
+                        {data.map((transaction, idx) => (
 
-                        </tbody>
-                    
-                    {/* </Table> */}
-                    </table>
-                :
-                <div style={{ padding: 20 }}>
-                    <p>{msg}</p>
-                </div>
+                            <div  key={idx} style={{padding:10 }}>
+                                <Row className={transaction.transactionConfirmed === "Yes" ? "true" : "false"} style={{border:'0px solid black', borderRadius:10, display:'flex', flexDirection:'row', justifyContent:'center', alignItems:'center'}} >
+                                    <Col xs={12} sm={12} md={3} lg={3}>
+                                        <img src={url+'uploads/'+transaction.profile_picture_url} alt='img' height={200} style={{maxWidth:200}}/>
+                                    </Col>
+                                    <Col xs={12} sm={12} md={8} lg={8}>
+                                        <div style={{padding:10}}>
+                                            {transaction.resume_url?<>Download : <a href={url + 'uploads/' +transaction.resume_url}>Resume</a></> : <strong>Resume is Missing</strong>}
+                                            <br />
+                                            Name : <strong>{transaction.name}</strong> , Email : <strong>{transaction.email}</strong><br />
+                                            Address : <strong>{transaction.street_address +' '+ transaction.city+' '+transaction.state_province+' '+transaction.country+" "+transaction.postal_code}</strong><br />
+                                            Phone : <strong>{transaction.phone_number }</strong> , Whats' App Number : <strong>{transaction.whatsApp }</strong><br />
+                                            Course Name : <strong>{transaction.coursesName}</strong> , Payment Amount : <strong>{transaction.amount}</strong><br />
+                                            Transaction ID: <strong>{transaction.transactionId}</strong>, Transaction UTR : <strong>{transaction.utr}</strong>, Transaction UPI-ID : <strong>{transaction.upiId}</strong>, Time : <strong>{formatDateString(transaction.created_at)}</strong><br />
+                                            <div>
+                                                Is Received? : <input type='checkbox' value={transaction.id} checked={transaction.transactionConfirmed === "Yes" ? true : false} onChange={handleCheckboxChange} />
+                                            </div>
+                                        </div>
+                                    </Col>
+                                </Row>
+                            </div>
+                        ))}
+
+                    </>
+                    :
+                    <div style={{ padding: 20 }}>
+                        <p>{msg}</p>
+                    </div>
                 }
             </div>
         </div>

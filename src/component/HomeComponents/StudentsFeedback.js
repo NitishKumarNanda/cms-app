@@ -115,7 +115,7 @@ export default function StudentsFeedback() {
   }, [data,item]);
 
   return (
-    <Container style={{marginTop:50}}>
+    <Container style={{marginTop:50, marginBottom:10}}>
       <div style={{textAlign:'center'}}>
       <h3>Testimonials</h3>
       <p>What our students say about us</p>
@@ -127,10 +127,10 @@ export default function StudentsFeedback() {
         {
           data.slice(startIndex, startIndex + item).map((ele, idx)=>
             <Col xs={10} sm={5} md={3} lg={3} style={{ padding: 20 }} key={idx}>
-              <div className="box text-center" style={{ padding: 20,boxShadow:'2px 2px 20px rgba(255, 0, 0, 0.5)'}}>
-                <p>{ele.name}</p>
+              <div className="box text-center" style={{ padding: 10,boxShadow:'2px 2px 20px rgba(255, 0, 0, 0.5)'}}>
+                <p style={{textTransform:'uppercase', fontWeight:600}}>{ele.name}</p>
                 <img className="img-fluid" src={ele.image?ele.image:imgSrc} alt='img' style={{height:100,width:100,borderRadius:'50%'}}/>
-                <p style={{height:200,overflow:'hidden',textOverflow:'ellipsis'}}>{ele.message}</p>
+                <p style={{height:200,overflowX: 'auto', marginTop:10 }}>{ele.message}</p>
               </div>
             </Col>
           )

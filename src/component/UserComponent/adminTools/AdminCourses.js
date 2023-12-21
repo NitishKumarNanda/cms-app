@@ -4,6 +4,7 @@ import CardViewCourses from './CardViewCourses'
 import axios from 'axios'
 import UserContext from '../UserContext'
 import URLContext from '../../URLContext'
+import ImageUpload from '../UserTools/ImageUpload'
 
 
 export default function AdminCourses() {
@@ -13,7 +14,7 @@ export default function AdminCourses() {
 
     const [coursesList, setCoursesList] = useState([])
     const [msg, setMsg] = useState("No Data Found");
-    const [modifyCourses, setModifyCourses] = useState({ id: 0, courses_name: '', courses_fee: 0, courses_special_fee: 0 });
+    const [modifyCourses, setModifyCourses] = useState({ id: 0, courses_name: '', courses_fee: 0, courses_special_fee: 0, next_batch: '', courses_image: '' });
 
     const [serverResponse, setServerResponse] = useState("");
 
@@ -37,6 +38,9 @@ export default function AdminCourses() {
         setModifyCourses({ ...modifyCourses, [e.target.name]: e.target.value });
     };
 
+    const handleImageName = (e) => {
+        setModifyCourses({ ...modifyCourses, courses_image: e.filename });
+    }
 
     const clearButton = () => {
         setModifyCourses({ id: 0, courses_name: '', courses_fee: 0, courses_special_fee: 0 });
@@ -66,7 +70,7 @@ export default function AdminCourses() {
             <Container>
                 <Row>
 
-                    <Col xs={12} sm={12} md={6} lg={6} xl={6} style={{ maxHeight: '70vh', overflowY: 'auto' }}>
+                    <Col xs={12} sm={12} md={12} lg={6} xl={6} style={{ maxHeight: '70vh', overflowY: 'auto' }}>
                         <h3>Courses List</h3>
                         {
                             coursesList.length > 0 ?
@@ -82,7 +86,7 @@ export default function AdminCourses() {
                         }
 
                     </Col>
-                    <Col xs={12} sm={12} md={6} lg={6} xl={6}>
+                    <Col xs={12} sm={12} md={12} lg={6} xl={6}>
                         <Card>
                             <Card.Header><h4>Modify Courses</h4></Card.Header>
                             <Card.Body>
@@ -99,6 +103,13 @@ export default function AdminCourses() {
                                         <Form.Label>Special Fee</Form.Label>
                                         <Form.Control type="num" name="courses_special_fee" value={modifyCourses.courses_special_fee || ""} onChange={handleChange} placeholder="Enter Special Fee" required />
                                     </Form.Group>
+                                    <Form.Group controlId="next_batch" style={{ padding: 10 }}>
+                                        <Form.Label>Next Batch Date</Form.Label>
+                                        <Form.Control type="date" name="next_batch" value={modifyCourses.next_batch || ""} onChange={handleChange} placeholder="Enter Special Fee" required />
+                                    </Form.Group>
+                                    <div style={{ padding: 10 }}>
+                                        <ImageUpload url={url} handleImageName={handleImageName} title={"Course Image (700 x 467)"}/>
+                                    </div>
                                     <div>
                                         <Button variant="primary" type="submit">
                                             Update

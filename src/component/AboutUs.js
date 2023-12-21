@@ -37,14 +37,14 @@ export default function AboutUs() {
                     details:[
                         `Our small, closely-knit team is united by the belief that everyone deserves the opportunity to achieve their career goals. We provide hands-on training, mentorship, and support to help you reach your full potential. With 'Empowering Careers,' you're not just another student – you're a valued member of our community.`,
                         `We understand that each individual's journey is unique, and we tailor our programs to meet your specific needs. Whether you're seeking a new career, looking to upskill, or transitioning into a different industry, we have the tools and expertise to make it happen.`,
-                        `At Mehta Placements we see your potential and are committed to unlocking it. Join us on this exciting journey towards a brighter, more fulfilling future. Your success is our success, and together, we can achieve greatness."`
+                        `At Mehta Placements we see your potential and are committed to unlock it. Join us on this exciting journey towards a brighter, more fulfilling future. Your success is our success, and together, we can achieve greatness."`
                     ]
                 }}
                 action={{ BookMeeting }} />
             <LeftImageData data={{
                 title: `We're operating at nearly double capacity to help you secure your job.`,
                 details: [`We're pulling out all the stops to make your job aspirations a reality. At our peak performance, we're operating at nearly double our regular capacity. Why?`,
-                    `Because we understand the importance of your dream job, and we're committed to doing
+                    `Because we understand the importance of your dream job, and we're committed to do
                     everything it takes to get you there. Our team is working tirelessly to create
                     opportunities, offer guidance, and provide the support you need to succeed. Your job
                     journey is our top priority, and we're here to make it happen, no matter what it takes.
@@ -63,7 +63,7 @@ export default function AboutUs() {
                     `We take immense pride in our team, which is comprised of experienced trainers, industry experts, and supportive mentors. Each member brings a wealth of real-world knowledge and expertise, ensuring that your training is not just theoretical but deeply practical and tailored to industry needs.`,
                     `But we don't stop at training – our placement team is equally dedicated to securing opportunities that match your skills and career aspirations. We are your advocates, working relentlessly to connect you with the right employers.`,
                     `Our administrative staff ensures that your entire experience with 'Mehta Placements' is seamless and hassle-free. From initial enrollment to graduation, they are here to assist you, answer your questions, and provide support every step of the way.`,
-                    `At 'Mehta Placements,' we don't just see you as students; we see you as future success stories. Our team is committed to providing you with the tools, resources, and guidance necessary to achieve your career goals.`,
+                    `At 'Mehta Placements,' we don't just see you as students; we see you as future success stories. Our team is committed to provide you with the tools, resources, and guidance necessary to achieve your career goals.`,
                     `We are excited to be part of your journey and eager to play our role in helping you reach your full potential. With 'Mehta Placements,' you're not just another face in the crowd – you're a valued member of our community, and your success is our ultimate goal.`
                 ],
                 members: [{

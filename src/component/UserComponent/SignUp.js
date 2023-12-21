@@ -1,14 +1,17 @@
 import React, { useContext, useState } from 'react'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import URLContext from '../URLContext';
-
+import Questions from './Question.json';
 
 export default function SignUp() {
+  const securityQuestions = Questions;
   const navigate = useNavigate();
+  const location = useLocation();
+  const { tab, courseID } = location.state || {};
   const { url } = useContext(URLContext);
-  const [error, setError]=useState();
-  const [inputs, setInputs] = useState({ 'name': '', 'email': '', 'password': '', 'confirmPassword': '' });
+  const [error, setError] = useState();
+  const [inputs, setInputs] = useState({ 'name': '', 'email': '', 'password': '', 'confirmPassword': '', 'ques': '', 'ans': '' });
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
@@ -22,8 +25,8 @@ export default function SignUp() {
       return;
     } else {
       const response = await axios.post(url + 'newUser', { ...inputs })
-      if (response.data.status === 200) navigate('/users/login');
-      else if (response.data.status===400) setError("Password not matching");
+      if (response.data.status === 200) navigate('/users/login', { state: { tab: tab, courseID: courseID } });
+      else if (response.data.status === 400) setError(response.data.error_msg);
     }
   }
   return (
@@ -41,29 +44,43 @@ export default function SignUp() {
                     <form onSubmit={handleSubmit}>
                       <p style={{ fontWeight: 700 }}>Please details to enter your account</p>
                       {
-                        error&&<p style={{ color: 'red' }}>{error}</p>
+                        error && <p style={{ color: 'red' }}>{error}</p>
                       }
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="name">Name*</label>
-                        <input type="text" id="name" className="form-control" name='name' onChange={handleChange} placeholder='Full Name' required/>
+                        <input type="text" id="name" className="form-control" name='name' onChange={handleChange} placeholder='Full Name' required />
 
                       </div>
 
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="email">Email address*</label>
-                        <input type="email" id="email" className="form-control" name='email' onChange={handleChange} placeholder='Email-ID' required/>
+                        <input type="email" id="email" className="form-control" name='email' onChange={handleChange} placeholder='Email-ID' required />
 
                       </div>
 
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="password">Password*</label>
-                        <input type="password" id="password" className="form-control" name='password' onChange={handleChange} placeholder='Password' required/>
+                        <input type="password" id="password" className="form-control" name='password' onChange={handleChange} placeholder='Password' required />
 
                       </div>
 
                       <div className="form-outline mb-4">
                         <label className="form-label" htmlFor="confirmPassword">Confirm Password*</label>
-                        <input type="password" id="confirmPassword" className="form-control" name='confirmPassword' onChange={handleChange} placeholder='Confirm Password' required/>
+                        <input type="password" id="confirmPassword" className="form-control" name='confirmPassword' onChange={handleChange} placeholder='Confirm Password' required />
+
+                      </div>
+                      <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="ques">Security Question*</label>
+                        <select id="ques" className="form-select" name='ques' onChange={handleChange} required>
+                          <option value="">Select a Security Question</option>
+                          {securityQuestions.map((question, index) => (
+                            <option key={index} value={question}>{question}</option>
+                          ))}
+                        </select>
+                      </div>
+                      <div className="form-outline mb-4">
+                        <label className="form-label" htmlFor="ans">Security Answer*</label>
+                        <input type="ans" id="ans" className="form-control" name='ans' onChange={handleChange} placeholder='Security Answer' required />
 
                       </div>
                       <div className="text-center pt-1 mb-5 pb-1">

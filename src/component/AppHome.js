@@ -30,7 +30,7 @@ export default function AppHome() {
     navigate('/courses/1');
   }
   const BookMeeting = () => {
-    if (user) {
+    if (user && user.email!==null && user.email!==undefined) {
       navigate(`/users`);
     } else {
       navigate('/users/login');
@@ -54,7 +54,7 @@ export default function AppHome() {
         title: `We're operating at nearly double capacity to help you secure your job.`,
         details: [`We're pulling out all the stops to make your job aspirations a reality. At our peak performance, we're operating at nearly double our regular capacity. Why?`,
           `Because
-          we understand the importance of your dream job, and we're committed to doing
+          we understand the importance of your dream job, and we're committed to do
           everything it takes to get you there. Our team is working tirelessly to create
           opportunities, offer guidance, and provide the support you need to succeed. Your job
           journey is our top priority, and we're here to make it happen, no matter what it takes.
