@@ -251,7 +251,7 @@ export default function Login() {
                 <div className="col-lg-6 col-md-12 d-flex align-items-center gradient-custom-2">
                   <div className="text-white px-3 py-4 p-md-5 mx-md-4">
                     <h4 className="mb-4">We are more than just a company</h4>
-                    <p className="small mb-0">Discover the Mehta Placements Advantage in Just 15 Days! Embark on a Journey to Your Dream Job with Expert Live Sessions, Skill Assessments, Dedicated Placement Support, Realistic Mock Interviews, and Exclusive Access to Top Company Interviews—Your Fast-Track to Success!</p>
+                    <p className="small mb-0">Discover the Mehta Placements Advantage in Just 15 Days! Embark on a Journey to Your Dream Job with Expert Live Sessions, Skill Assessments, Dedicated Placement Support, Realistic Mock Interviews and Exclusive Access to Top Company Interviews—Your Fast-Track to Success!</p>
                   </div>
                 </div>
               </div>

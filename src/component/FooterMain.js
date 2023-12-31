@@ -52,16 +52,16 @@ export default function FooterMain() {
                         <Row>
                             <div className="box">
                                 <a href="https://www.facebook.com/profile.php?id=61554544122352" target="_blank" rel="noopener noreferrer">
-                                    <i className="bi bi-facebook" style={{ padding: 10, cursor: 'pointer' }} />
+                                    <i className="bi bi-facebook" style={{ padding: 10, cursor: 'pointer', color:'blue' }} />
                                 </a>
                                 {/* <a href="https://www.instagram.com/mehtaplacements/" target="_blank" rel="noopener noreferrer">
                                     <i className="bi bi-twitter" style={{ padding: 10, cursor: 'pointer' }} />
                                 </a> */}
                                 <a href="https://www.instagram.com/mehtaplacements/" target="_blank" rel="noopener noreferrer">
-                                    <i className="bi bi-instagram" style={{ padding: 10, cursor: 'pointer' }} />
+                                    <i className="bi bi-instagram" style={{ padding: 10, cursor: 'pointer', color:'red' }} />
                                 </a>
                                 <a href="https://www.linkedin.com/in/mehta-placements-6728b5247/" target="_blank" rel="noopener noreferrer">
-                                    <i className="bi bi-linkedin" style={{ padding: 10, cursor: 'pointer' }} />
+                                    <i className="bi bi-linkedin" style={{ padding: 10, cursor: 'pointer', color:'#3385ff' }} />
                                 </a>
                             </div>
                         </Row>

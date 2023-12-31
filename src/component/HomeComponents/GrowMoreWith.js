@@ -8,7 +8,7 @@ export default function GrowMoreWith({images}) {
             <Row>
                 <Col>
                     <h2 style={{ fontSize: 32, marginTop: 60 }}>Unlock Your Future with Mehta Placements</h2>
-                    <p style={{ padding: '10px 20% 0% 20%' }}>Discover the Mehta Placements Advantage in Just 15 Days! Embark on a Journey to Your Dream Job with Expert Live Sessions, Skill Assessments, Dedicated Placement Support, Realistic Mock Interviews, and Exclusive Access to Top Company Interviews—Your Fast-Track to Success!</p>
+                    <p style={{ padding: '10px 20% 0% 20%' }}>Discover the Mehta Placements Advantage in Just 15 Days! Embark on a Journey to Your Dream Job with Expert Live Sessions, Skill Assessments, Dedicated Placement Support, Realistic Mock Interviews and Exclusive Access to Top Company Interviews—Your Fast-Track to Success!</p>
                 </Col>
             </Row>
             <Container style={{ padding: 10, marginTop: 20 }}>

@@ -12,7 +12,12 @@ export default function GiftBanner() {
                         <h3>TOP 3 BATCH <br />TOPPERS <br />WILL GET</h3>
                     </Col>
                     <Col xs={12} sm={12} md={4} lg={4} xl={4} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', maxHeight: 150, }}>
-                        <img src={imgTwo} alt='image1' style={{ maxHeight: 100 }} />
+                        <div style={{ position: 'relative', width: '100%', maxHeight: 100 }}>
+                            <div style={{ position: 'absolute', top: '-10px', left: '20px', width: 100, padding: '5px', borderRadius: '5px', transform: 'rotate(-25deg)', zIndex: 1 }}>
+                                <span style={{ color:'lightyellow', fontSize:36,textShadow:'1px 2px grey' }}>Exciting</span>
+                            </div>
+                            <img src={imgTwo} alt='image1' style={{ maxHeight: 100, zIndex: 0, transform: 'rotate(-15deg)' }} />
+                        </div>
                     </Col>
                     <Col xs={12} sm={12} md={4} lg={4} xl={4} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', maxHeight: 150, }}>
                         <img src={imgOne} alt='image1' style={{ maxHeight: 100 }} />

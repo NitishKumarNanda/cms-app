@@ -4,14 +4,14 @@
     "data": [
         {
             "id": 1,
-            "title": "This Privacy Policy outlines how the Platform collects, uses, and discloses user information, addressing privacy rights, and choices. Applicable to all Platform users (‘Learners,’ ‘You’), read this Policy carefully before accessing our services.",
+            "title": "This Privacy Policy outlines how the Platform collects, uses and discloses user information, addressing privacy rights and choices. Applicable to all Platform users (‘Learners,’ ‘You’), read this Policy carefully before accessing our services.",
             "data": [
                 {
                     "id": 1,
                     "title": "Personal Information",
                     "data": [
                         "Definition: ‘Personal Information’ refers to data identifying a Learner (e.g., name, email, etc.).",
-                        "Sensitive Personal Information: Includes passwords, financial data, health info, and more, as defined by Data Protection Laws."
+                        "Sensitive Personal Information: Includes passwords, financial data, health info and more, as defined by Data Protection Laws."
                     ]
                 },
                 {
@@ -89,7 +89,7 @@
                     "id":8,
                     "title":"Modification to Privacy Policy",
                     "data":[
-                        "Policy may be modified, and the updated date will be revised"
+                        "Policy may be modified and the updated date will be revised"
                     ]
                 },
                 {
@@ -107,7 +107,7 @@
             "data":[
                 {
                     "id":1,
-                    "title":"Terms applicable to Indian Residents, UK/EU Residents, and California State Residents are detailed in the Policy.",
+                    "title":"Terms applicable to Indian Residents, UK/EU Residents and California State Residents are detailed in the Policy.",
                     "data":[]
                 },
                 {

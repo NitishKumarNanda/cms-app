@@ -70,7 +70,7 @@ export default function CoursesPage() {
                             <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', alignItems: 'center', padding: 10 }}>
                                 <Card style={{width:'100%'}}>
                                     <Card.Header>3rd Rank</Card.Header>
-                                    <Card.Body>Grocery Set <img src={gift3} alt='gift1' style={{ borderRadius: '50%', height: 50, width: 50 }} /></Card.Body>
+                                    <Card.Body>Crockery Set <img src={gift3} alt='gift1' style={{ borderRadius: '50%', height: 50, width: 50 }} /></Card.Body>
                                 </Card>
                             </div>
                         </Col>
@@ -91,11 +91,11 @@ export default function CoursesPage() {
                 title: 'We are working at almost twice the capacity',
                 details: [`We're pulling out all the stops to make your job aspirations a reality. At our peak performance, we're operating at nearly double our regular capacity. Why?`,
                     `Because
-                    we understand the importance of your dream job, and we're committed to do
+                    we understand the importance of your dream job and we're committed to do
                     everything it takes to get you there. Our team is working tirelessly to create
-                    opportunities, offer guidance, and provide the support you need to succeed. Your job
-                    journey is our top priority, and we're here to make it happen, no matter what it takes.
-                    So, rest assured, with us, you're in capable hands, and your dream job is well within
+                    opportunities, offer guidance and provide the support you need to succeed. Your job
+                    journey is our top priority and we're here to make it happen, no matter what it takes.
+                    So, rest assured, with us, you're in capable hands and your dream job is well within
                     reach.`],
                 imgSrc: ImageLeft
             }} />
